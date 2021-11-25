@@ -1,0 +1,27 @@
+<nav>
+    <div class="nav-wrapper teal darken-2">
+      <a routerLink="/home" class="brand-logo">Inicio</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li *ngIf="activeSession"><a routerLink="parameters/solicitudes-listar">Solicitudes</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/jurado-listar">Jurado</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/proponente-listar">Proponente</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/modalidad-listar">Modalidad</a></li>
+        <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
+        <li *ngIf="!activeSession"><a routerLink="security/login">Login</a></li>
+        <li *ngIf="activeSession"><a routerLink="security/logout">Logout</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li *ngIf="activeSession"><a routerLink="parameters/solicitudes-listar">Solicitudes</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/jurado-listar">Jurado</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/proponente-listar">Proponente</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/modalidad-listar">Modalidad</a></li>
+        <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
+        <li *ngIf="!activeSession"><a routerLink="security/login">Login</a></li>
+        <li *ngIf="activeSession"><a routerLink="security/logout">Logout</a></li>
+  
+  </ul>
