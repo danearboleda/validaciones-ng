@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ComiteSolicitudModel } from 'src/app/models/comite_solicitud.model';
+import { ComiteSolicitudService } from 'src/app/service/parameters/comite-solicitud.service';
 
 @Component({
   selector: 'app-csolicitud-listar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CsolicitudListarComponent implements OnInit {
 
-  constructor() { }
+  recordList: ComiteSolicitudModel[]=[];
+  constructor(private service: ComiteSolicitudService) { }
 
   ngOnInit(): void {
+    this.showRecordList();
   }
+showRecordList(){
+  this.service.GetRecordList().subscribe(
+   { next:(data: ComiteSolicitudModel[])=>{
+      this.recordList=data;
+    }
+   });
+}
+
 
 }
