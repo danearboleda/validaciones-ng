@@ -46,6 +46,7 @@ import { CsolicitudCrearComponent } from './comite_solicitud/csolicitud-crear/cs
 import { CsolicitudEditarComponent } from './comite_solicitud/csolicitud-editar/csolicitud-editar.component';
 import { CsolicitudListarComponent } from './comite_solicitud/csolicitud-listar/csolicitud-listar.component';
 import { CsolicitudRemoverComponent } from './comite_solicitud/csolicitud-remover/csolicitud-remover.component';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -97,7 +98,9 @@ import { CsolicitudRemoverComponent } from './comite_solicitud/csolicitud-remove
   ],
   imports: [
     CommonModule,
-    ParametersRoutingModule
+    ParametersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametersModule { }

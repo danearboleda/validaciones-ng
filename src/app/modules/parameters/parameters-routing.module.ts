@@ -83,7 +83,7 @@ const routes: Routes = [
     component: ModalidadCrearComponent
   },
   {
-    path:"modalidad-editar",
+    path:"modalidad-editar/:id",
     component: ModalidadEditarComponent
   },
   {
