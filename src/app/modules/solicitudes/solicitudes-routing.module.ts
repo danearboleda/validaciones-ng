@@ -19,7 +19,7 @@ const routes: Routes = [
     component: SolicitudesCrearComponent
   },
   {
-    path:"solicitudes-editar",
+    path:"solicitudes-editar/:id",
     component: SolicitudesEditarComponent
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
     component: EsolicitudCrearComponent
   },
   {
-    path:"esolicitud-editar",
+    path:"esolicitud-editar/:id",
     component: EsolicitudEditarComponent
   },
   {
@@ -51,7 +51,7 @@ const routes: Routes = [
     component: EvaluacionCrearComponent
   },
   {
-    path:"evaluacion-editar",
+    path:"evaluacion-editar/:id",
     component: EvaluacionEditarComponent
   },
   {

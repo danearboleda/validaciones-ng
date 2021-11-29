@@ -14,6 +14,7 @@ import { EvaluacionCrearComponent } from './resultado_evaluacion/evaluacion-crea
 import { EvaluacionListarComponent } from './resultado_evaluacion/evaluacion-listar/evaluacion-listar.component';
 import { EvaluacionEditarComponent } from './resultado_evaluacion/evaluacion-editar/evaluacion-editar.component';
 import { EvaluacionAnularComponent } from './resultado_evaluacion/evaluacion-anular/evaluacion-anular.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { EvaluacionAnularComponent } from './resultado_evaluacion/evaluacion-anu
   ],
   imports: [
     CommonModule,
-    SolicitudesRoutingModule
+    SolicitudesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class SolicitudesModule { }
