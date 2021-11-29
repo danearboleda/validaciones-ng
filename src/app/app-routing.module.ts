@@ -17,10 +17,10 @@ const routes: Routes = [
   },{
     path:"parameters",
     loadChildren: () => import("./modules/parameters/parameters.module").then(x => x.ParametersModule)
-  },{
+  },/*{
     path:"solicitudes",
     loadChildren: () => import("./modules/solicitudes/solicitudes.module").then(x => x.SolicitudesModule)
-  },{
+  },*/{
     path:"reportes",
     loadChildren: () => import("./modules/reportes/reportes.module").then(x => x.ReportesModule)
   },{
