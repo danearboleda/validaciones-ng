@@ -91,7 +91,7 @@ const routes: Routes = [
     component: ModalidadListarComponent
   },
   {
-    path:"modalidad-remover",
+    path:"modalidad-remover/:id",
     component: ModalidadRemoverComponent
   },
   {

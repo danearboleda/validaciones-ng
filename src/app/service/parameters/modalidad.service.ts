@@ -21,7 +21,7 @@ export class ModalidadService {
   
 
   saveRecord(data: ModalidadModel): Observable<ModalidadModel>{
-    return this.http.post<ModalidadModel>(`${this.url}/modalidaes`, {
+    return this.http.post<ModalidadModel>(`${this.url}/modalidades`, {
   nombre: data.nombre
     },{
   headers: new HttpHeaders({

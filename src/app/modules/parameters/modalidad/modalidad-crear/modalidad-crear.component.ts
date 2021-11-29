@@ -37,7 +37,7 @@ export class ModalidadCrearComponent implements OnInit {
 this.service.saveRecord(model).subscribe({
 next:(data: ModalidadModel)=>{
 ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
-this.router.navigate(["parameters/modalidad-listar"])
+this.router.navigate(["/parameters/modalidad-listar"])
 }
 });
   }

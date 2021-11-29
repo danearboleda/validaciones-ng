@@ -43,7 +43,7 @@ this.name=data.nombre;
      this.service.RemoveRecord(this.id).subscribe({
 next:(data: any)=>{
 ShowGeneralMessage(ConfigurationData.REMOVED_MESSAGE);
-this.router.navigate(["parameters/comite-listar"])
+this.router.navigate(["/parameters/comite-listar"])
 }
 });
   }

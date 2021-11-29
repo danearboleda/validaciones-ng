@@ -53,7 +53,7 @@ model.id=this.GetDF["id"].value;
     this.service.EditRecord(model).subscribe({
 next:(data: ComiteModel)=>{
 ShowGeneralMessage(ConfigurationData.UPDATED_MESSAGE);
-this.router.navigate(["parameters/comite-listar"])
+this.router.navigate(["/parameters/comite-listar"])
 }
 });
   }

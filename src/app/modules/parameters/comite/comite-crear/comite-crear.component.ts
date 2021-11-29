@@ -38,7 +38,7 @@ export class ComiteCrearComponent implements OnInit {
 this.service.saveRecord(model).subscribe({
 next:(data: ComiteModel)=>{
 ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
-this.router.navigate(["parameters/comite-listar"])
+this.router.navigate(["/parameters/comite-listar"])
 }
 });
   }
