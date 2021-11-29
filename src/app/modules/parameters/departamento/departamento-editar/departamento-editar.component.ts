@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConfigurationData } from 'src/app/config/ConfigurationData';
+import { DepartamentoModel } from 'src/app/models/departamento.model';
+import { DepartamentoService } from 'src/app/service/parameters/departamento.service';
+declare const ShowGeneralMessage: any;
 
 @Component({
   selector: 'app-departamento-editar',
@@ -7,9 +13,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartamentoEditarComponent implements OnInit {
 
-  constructor() { }
+  dataForm: FormGroup = new FormGroup({});
+  constructor(
+    private fb: FormBuilder,
+  private router: Router,
+  private service: DepartamentoService,
+  private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+    this.FormBuilding();
+    this.SearchRecord();
   }
+
+  FormBuilding() {
+    this.dataForm = this.fb.group({
+      id: ["", Validators.required],
+      name: ["", [Validators.required]],
+      facultad: ["", [Validators.required]]
+    });
+  }
+
+
+
+  
+SearchRecord(){
+  let id=this.route.snapshot.params["id"];
+  this.service.SearchRecord(id).subscribe({
+    next:(data: DepartamentoModel)=>{
+      this.GetDF["id"].setValue(data.id);
+      this.GetDF["name"].setValue(data.nombre);
+      this.GetDF["facultad"].setValue(data.id_facultad)
+    }
+  });
+}
+  saveRecord(){
+    let model=new DepartamentoModel();
+    model.nombre=this.GetDF["name"].value
+model.id=this.GetDF["id"].value;
+model.id_facultad=this.GetDF["facultad"].value;
+    this.service.EditRecord(model).subscribe({
+next:(data: DepartamentoModel)=>{
+ShowGeneralMessage(ConfigurationData.UPDATED_MESSAGE);
+this.router.navigate(["parameters/departamento-listar"])
+}
+});
+  }
+
+  get GetDF() {
+    return this.dataForm.controls;
+  }
+
 
 }

@@ -1,5 +1,6 @@
 export class ProponenteModel{
     id?:number;
+    documento?:string;
     primerNombre?:string;
     otrosNombres?:string;
     primerApellido?:string;

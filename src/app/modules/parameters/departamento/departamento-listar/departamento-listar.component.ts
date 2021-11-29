@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DepartamentoModel } from 'src/app/models/departamento.model';
+import { DepartamentoService } from 'src/app/service/parameters/departamento.service';
 
 @Component({
   selector: 'app-departamento-listar',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartamentoListarComponent implements OnInit {
 
-  constructor() { }
+  recordList: DepartamentoModel[]=[];
+
+  constructor(private service: DepartamentoService) { }
 
   ngOnInit(): void {
+    this.showRecordList();
   }
+showRecordList(){
+  this.service.GetRecordList().subscribe(
+   { next:(data: DepartamentoModel[])=>{
+      this.recordList=data;
+    }
+   });
+}
+ 
 
 }

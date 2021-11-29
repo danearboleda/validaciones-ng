@@ -51,7 +51,7 @@ const routes: Routes = [
     component: DepartamentoCrearComponent
   },
   {
-    path:"departamento-editar",
+    path:"departamento-editar/:id",
     component: DepartamentoEditarComponent
   },
   {
@@ -59,7 +59,7 @@ const routes: Routes = [
     component: DepartamentoListarComponent
   },
   {
-    path:"departamento-remover",
+    path:"departamento-remover/:id",
     component: DepartamentoRemoverComponent
   },
   {
@@ -67,7 +67,7 @@ const routes: Routes = [
     component: FacultadCrearComponent
   },
   {
-    path:"facultad-editar",
+    path:"facultad-editar/:id",
     component: FacultadEditarComponent
   },
   {
@@ -75,7 +75,7 @@ const routes: Routes = [
     component: FacultadListarComponent
   },
   {
-    path:"facultad-remover",
+    path:"facultad-remover/:id",
     component: FacultadRemoverComponent
   },
   {
@@ -107,7 +107,7 @@ const routes: Routes = [
     component: RecordatorioListarComponent
   },
   {
-    path:"recordatorio-remover",
+    path:"recordatorio-remover/:id",
     component: RecordatorioRemoverComponent
   },
   {
@@ -123,7 +123,7 @@ const routes: Routes = [
     component: ComiteListarComponent
   },
   {
-    path:"comite-remover",
+    path:"comite-remover/:id",
     component: ComiteRemoverComponent
   },
   {
@@ -139,7 +139,7 @@ const routes: Routes = [
     component: TsolicitudListarComponent
   },
   {
-    path:"tsolicitud-remover",
+    path:"tsolicitud-remover/:id",
     component: TsolicitudRemoverComponent
   },
   {
@@ -155,7 +155,7 @@ const routes: Routes = [
     component: InvestigacionListarComponent
   },
   {
-    path:"investigacion-remover",
+    path:"investigacion-remover/:id",
     component: InvestigacionRemoverComponent
   },
   {
@@ -171,7 +171,7 @@ const routes: Routes = [
     component: VinculacionListarComponent
   },
   {
-    path:"vinculacion-remover",
+    path:"vinculacion-remover/:id",
     component: VinculacionRemoverComponent
   },
   {
@@ -187,7 +187,7 @@ const routes: Routes = [
     component: JuradoListarComponent
   },
   {
-    path:"jurado-remover",
+    path:"jurado-remover/:id",
     component: JuradoRemoverComponent
   },
   {
@@ -203,7 +203,7 @@ const routes: Routes = [
     component: ProponenteListarComponent
   },
   {
-    path:"proponente-remover",
+    path:"proponente-remover/:id",
     component: ProponenteRemoverComponent
   },
   {
