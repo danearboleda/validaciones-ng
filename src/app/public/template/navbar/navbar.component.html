@@ -8,9 +8,13 @@
         <li *ngIf="activeSession"><a routerLink="parameters/proponente-listar">Proponente</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/modalidad-listar">Modalidad</a></li>
         <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
+        
+        <li *ngIf="activeSession"><a routerLink="parameters/comite-listar">Comites</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/tsolicitud-listar">Tipo Solicitudes</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/investigacion-listar">Lineas Investigacion</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/recordatorio-listar">Recordatorio</a></li>
         <li *ngIf="!activeSession"><a routerLink="security/login">Login</a></li>
         <li *ngIf="activeSession"><a routerLink="security/logout">Logout</a></li>
-
       </ul>
     </div>
   </nav>
@@ -21,7 +25,11 @@
         <li *ngIf="activeSession"><a routerLink="parameters/proponente-listar">Proponente</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/modalidad-listar">Modalidad</a></li>
         <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
+       
+        <li *ngIf="activeSession"><a routerLink="parameters/comite-listar">Comites</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/tsolicitud-listar">Tipo Solicitudes</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/investigacion-listar">Lineas Investigacion</a></li>
+        <li *ngIf="activeSession"><a routerLink="parameters/recordatorio-listar">Recordatorio</a></li>
         <li *ngIf="!activeSession"><a routerLink="security/login">Login</a></li>
         <li *ngIf="activeSession"><a routerLink="security/logout">Logout</a></li>
-  
   </ul>

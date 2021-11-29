@@ -1,0 +1,32 @@
+<div class="row">
+    <form [formGroup]="dataForm" class="col s12">
+        <input type="hidden" formControlName="id"/>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="id_solicitud"  id="txtIdSolictud" type="text" >
+          <label for="txtIdSolictud">ID evaluacion solicitud</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="resultado"  id="txtResultado" type="text" >
+          <label for="txtResultado">resultado</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="formato"  id="txtFormato" type="text" >
+          <label for="txtFormato">formato diligenciado</label>
+        </div>
+      </div>
+     
+     
+      <div class="row">
+        <div class="col s12">
+         <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+      &nbsp; <a class="btn btn-warning orange" routerLink="/solicitudes/resultado_evaluacion/evaluacion-listar">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>
