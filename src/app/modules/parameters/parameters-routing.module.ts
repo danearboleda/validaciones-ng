@@ -99,7 +99,7 @@ const routes: Routes = [
     component: RecordatorioCrearComponent
   },
   {
-    path:"recordatorio-editar",
+    path:"recordatorio-editar/:id",
     component: RecordatorioEditarComponent
   },
   {
@@ -115,7 +115,7 @@ const routes: Routes = [
     component: ComiteCrearComponent
   },
   {
-    path:"comite-editar",
+    path:"comite-editar/:id",
     component: ComiteEditarComponent
   },
   {
@@ -131,7 +131,7 @@ const routes: Routes = [
     component: TsolicitudCrearComponent
   },
   {
-    path:"tsolicitud-editar",
+    path:"tsolicitud-editar/:id",
     component: TsolicitudEditarComponent
   },
   {
@@ -147,7 +147,7 @@ const routes: Routes = [
     component: InvestigacionCrearComponent
   },
   {
-    path:"investigacion-editar",
+    path:"investigacion-editar/:id",
     component: InvestigacionEditarComponent
   },
   {
@@ -163,7 +163,7 @@ const routes: Routes = [
     component: VinculacionCrearComponent
   },
   {
-    path:"vinculacion-editar",
+    path:"vinculacion-editar/:id",
     component: VinculacionEditarComponent
   },
   {
@@ -179,7 +179,7 @@ const routes: Routes = [
     component: JuradoCrearComponent
   },
   {
-    path:"jurado-editar",
+    path:"jurado-editar/:id",
     component: JuradoEditarComponent
   },
   {
@@ -195,7 +195,7 @@ const routes: Routes = [
     component: ProponenteCrearComponent
   },
   {
-    path:"proponente-editar",
+    path:"proponente-editar/:id",
     component: ProponenteEditarComponent
   },
   {
@@ -211,7 +211,7 @@ const routes: Routes = [
     component: CsolicitudCrearComponent
   },
   {
-    path:"csolicitud-editar",
+    path:"csolicitud-editar/:id",
     component: CsolicitudEditarComponent
   },
   {

@@ -1,1 +1,43 @@
-<p>jurado-editar works!</p>
+<div class="row">
+    <form [formGroup]="dataForm" class="col s12">
+        <input type="hidden" formControlName="id"/>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="name"  id="txtName" type="text" >
+          <label for="txtName">Nombre</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="tel"  id="txtTel" type="number" >
+          <label for="txtTel">Telefono</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="entidad"  id="txtEntidad" type="number" >
+          <label for="txtEntidad">Entidad</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="correo"  id="txtCorreo" type="text" >
+          <label for="txtCorreo">Correo</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="idJurado"  id="txtIdJurado" type="number" >
+          <label for="txtIdJurado">ID jurado</label>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="col s12">
+         <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+      &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/comite-listar">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>

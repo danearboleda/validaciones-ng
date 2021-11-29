@@ -1,1 +1,58 @@
-<p>esolicitud-crear works!</p>
+<div class="row">
+    
+    <form [formGroup]="dataForm" class="col s12">
+
+    <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="solicitud"  id="txtSolicitud" type="number" >
+          <label for="txtSolicitud">ID tipo de solicitud</label>
+        </div>
+    </div>
+        <div class="row">
+            <div class="input-field col s12">
+              <input formControlName="jurado"  id="txtJurado" type="number" >
+              <label for="txtJurado">ID jurado</label>
+            </div>
+          </div>
+    <div class="row">
+    <div class="input-field col s12">
+      <input formControlName="invitacion"  id="txtInvitacion" type="text" >
+      <label for="txtInvitacion">Fecha invitacion</label>
+    </div>
+    </div>
+    <div class="row">
+
+    <div class="input-field col s12">
+        <input formControlName="f_respuesta"  id="txtF_respuesta" type="text" >
+        <label for="txtF_respuesta">Fecha respuesta</label>
+      </div>
+  </div>
+
+  
+ 
+  
+  <div class="row">
+    <div class="input-field col s6">
+      <input formControlName="respuesta"  id="txtRespuesta" type="text" >
+      <label for="txtRespuesta">Respuesta</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input formControlName="observacion"  id="txtObservacion" type="text" >
+      <label for="txtObservacion">Observaciones</label>
+    </div>
+  </div>
+    
+  
+  
+ 
+  <div class="row">
+    <div class="col s12">
+     <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+  &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/solicitudes/solicitudes-listar">Cancelar</a>
+    </div>
+  </div>
+  </form>
+
+</div>

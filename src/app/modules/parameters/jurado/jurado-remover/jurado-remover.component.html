@@ -1,1 +1,40 @@
-<p>jurado-remover works!</p>
+<div class="row">
+    <div class="row">
+    <div class="input-field col s12">
+   
+   <strong>¿Esta seguro de eliminar el registro con la siguiente informacion?</strong>
+   <br/>
+   <ul>
+
+    <li>
+      Id: {{id}} 
+    </li>
+    <li>
+       Nombre: {{nombre}} 
+     </li>
+     <li>
+        Telefono: {{telefono}} 
+      </li>
+      <li>
+        Entidad: {{entidad}} 
+      </li>
+      <li>
+        Correo: {{correo}} 
+      </li>
+      <li>
+        ID del jurado: {{id_tipoJurado}} 
+      </li>
+   </ul>
+
+
+</div>
+   
+ 
+  <div class="row">
+    <div class="col s12">
+     <button type="button" class="btn btn-success" (click)="removeRecord()">Confirmar</button>
+  &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/comite-listar">Cancelar</a>
+    </div>
+  </div>
+
+</div>

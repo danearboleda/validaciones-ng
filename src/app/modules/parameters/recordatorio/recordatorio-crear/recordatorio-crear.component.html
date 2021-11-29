@@ -1,1 +1,39 @@
-<p>recordatorio-crear works!</p>
+<div class="row">
+    <form [formGroup]="dataForm" class="col s12">
+     
+        <div class="row">
+            <div class="input-field col s6">
+              <input formControlName="id_solicitud"  id="txtId_solicitud" type="number" >
+              <label for="txtId_solicitud">ID solicitud</label>
+            </div>
+          </div>
+        <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="tipo"  id="txtTipo" type="text" >
+          <label for="txtTipo">Tipo</label>
+        </div>
+      </div>
+  
+     
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="resumen"  id="txtResumen" type="text" >
+          <label for="txtResumen">Resumen</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="fecha"  id="txtFecha" type="text" >
+          <label for="txtFecha">Fecha</label>
+        </div>
+      </div>
+  
+     
+      <div class="row">
+        <div class="col s12">
+         <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+      &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/recordatorio-listar">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>

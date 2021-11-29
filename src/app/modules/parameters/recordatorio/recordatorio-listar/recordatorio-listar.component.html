@@ -1,1 +1,63 @@
-<p>recordatorio-listar works!</p>
+<br/>
+<a routerLink="/parameters/recordatorio-crear" class="btn btn-success">Agregar Registro</a>
+
+
+<fieldset>
+    <legend>Listado de Modalidades</legend>
+<table>
+    <thead>
+        <tr>
+    
+<th>
+    ID
+</th>
+<th>
+    ID Solicitud
+</th>
+<th>
+    Tipo
+</th>
+<th>
+    Resumen
+</th>
+<th>
+    Fecha
+</th>
+<th>
+    Hora
+</th>
+<th>
+    Acciones
+</th>
+</tr>
+
+    </thead>
+    <tbody>
+<tr *ngFor="let r of recordList">
+<td>
+   {{r.id}} 
+</td>
+<td>
+    {{r.id_solicitud}}
+</td>
+<td>
+    {{r.tipo}}
+</td>
+<td>
+    {{r.resumen}}
+</td>
+<td>
+    {{r.fecha}}
+</td>
+<td>
+    {{r.hora}}
+</td>
+<td>
+    <a routerLink="/parameters/recordatorio-editar/{{r.id}}" class="btn btn-warning orange">Editar</a>
+   &nbsp; <a routerLink="/parameters/recordatorio-remover/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+
+</td>
+</tr>
+    </tbody>
+</table>
+</fieldset>

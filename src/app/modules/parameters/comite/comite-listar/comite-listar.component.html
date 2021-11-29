@@ -1,3 +1,6 @@
+<br/>
+<a routerLink="/parameters/comite-crear" class="btn btn-success">Agregar Registro</a>
+
 <fieldset>
     <legend>Listado de Registros</legend>
 <table>
@@ -23,6 +26,11 @@
 </td>
 <td>
     {{r.nombre}}
+</td>
+<td>
+    <a routerLink="/parameters/comite-editar/{{r.id}}" class="btn btn-warning orange">Editar</a>
+   &nbsp; <a routerLink="/parameters/comite-remover/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+
 </td>
 </tr>
     </tbody>
