@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SolicitudModel } from 'src/app/models/solicitud.model';
+import { SolicitudService } from 'src/app/service/solicitudes/solicitud.service';
 
 @Component({
   selector: 'app-solicitudes-listar',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolicitudesListarComponent implements OnInit {
 
-  constructor() { }
+  recordList: SolicitudModel[] =[];
+
+  constructor(
+    private service: SolicitudService
+    ) {}
 
   ngOnInit(): void {
+    this.showRecordList();
+  }
+  showRecordList() {
+    this.service.GetRecordList().subscribe(
+      {
+        next: (data: SolicitudModel[]) => {
+          this.recordList = data;
+        }
+      });
   }
 
 }
