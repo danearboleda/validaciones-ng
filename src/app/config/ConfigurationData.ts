@@ -5,6 +5,7 @@ export namespace ConfigurationData{
     export const VALID_FORM_MESSAGE = "OK."
     export const SECURITY_MS_URL = "http://localhost:3003";
     export const BUSSINESS_MS_URL = "http://localhost:3000";
+    export const BUSSINESS2_MS_URL = "http://localhost:3001";
     export const SAVED_MESSAGE = "Registro almacenado."
     export const UPDATED_MESSAGE = "Registro actualizado."
     export const REMOVED_MESSAGE = "Registro eliminado."

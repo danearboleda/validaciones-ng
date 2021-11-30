@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProponenteModel } from 'src/app/models/proponente.model';
+import { ProponenteService } from 'src/app/service/parameters/proponente.service';
 
 @Component({
   selector: 'app-proponente-listar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProponenteListarComponent implements OnInit {
 
-  constructor() { }
+  recordList: ProponenteModel[]=[];
+
+  constructor(private service: ProponenteService) { }
 
   ngOnInit(): void {
+    this.showRecordList();
   }
+showRecordList(){
+  this.service.GetRecordList().subscribe(
+   { next:(data: ProponenteModel[])=>{
+      this.recordList=data;
+    }
+   });
+}
 
 }
