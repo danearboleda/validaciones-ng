@@ -11,7 +11,7 @@ import { LocalStorageService } from '../shared/local-storage.service';
 export class ComiteService {
 
   url: string = ConfigurationData.BUSSINESS_MS_URL;
-  tk:string=""; 
+  tk:string="inicio"; 
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
     this.tk=this.localStorageService.GetToken();
   }
@@ -22,6 +22,9 @@ GetRecordList(): Observable<ComiteModel[]>{
 
 
 saveRecord(data: ComiteModel): Observable<ComiteModel>{
+  //el token llega vacio
+  console.log("hola");
+  console.log(this.tk);
   return this.http.post<ComiteModel>(`${this.url}/tipo-comites`, {
 nombre: data.nombre
   },{
@@ -39,6 +42,7 @@ EditRecord(data: ComiteModel): Observable<ComiteModel>{
 nombre: data.nombre
   },{
 headers: new HttpHeaders({
+  
  Authorization:`Bearer ${this.tk}` 
 })
   });
