@@ -12,28 +12,31 @@ import { LocalStorageService } from './local-storage.service';
 export class SecurityService {
 
   url: string = ConfigurationData.SECURITY_MS_URL;
-sessionInfoSubject:BehaviorSubject<SessionDataModel>=new BehaviorSubject<SessionDataModel>(new SessionDataModel());
+  sessionInfoSubject: BehaviorSubject<SessionDataModel> = new BehaviorSubject<SessionDataModel>(new SessionDataModel());
+  
+  
   constructor(private http: HttpClient,
-private localStorageService: LocalStorageService) {
-  this.verifyActiveSession();
+    private localStorageService: LocalStorageService) {
+    this.verifyActiveSession();
   }
-  verifyActiveSession(): boolean{
-let info=this.localStorageService.GetSessionInfo();
-if(info.tk){
-  info.isLoggedIn=true;
-  this.RefreshSessionInfo(info);
-  return true;
-}else{
-  return false;
-}
+  
+  verifyActiveSession(): boolean {
+    let info = this.localStorageService.GetSessionInfo();
+    if (info.tk) {
+      info.isLoggedIn = true;
+      this.RefreshSessionInfo(info);
+      return true;
+    } else {
+      return false;
+    }
   }
 
 
-  RefreshSessionInfo(data:SessionDataModel){
+  RefreshSessionInfo(data: SessionDataModel) {
     this.sessionInfoSubject.next(data);
   }
 
-  GetSessionInfo(){
+  GetSessionInfo() {
     return this.sessionInfoSubject.asObservable();
   }
 

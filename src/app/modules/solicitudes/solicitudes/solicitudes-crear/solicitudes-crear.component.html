@@ -22,7 +22,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select>
-                  <option *ngFor="let m of modalidadList" value="{{m.id}}">{{m.nombre}}</option>
+                  <option *ngFor="let m of modalidadList" value="{{m.id}}">{{m?.nombre}}</option>
                 </select>
                 <label>Modalidad</label>
               </div>
@@ -30,7 +30,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select>
-                  <option *ngFor="let t of tipoList" value="{{t.id}}">{{t.nombre}}</option>
+                  <option *ngFor="let t of tipoList" value="{{t.id}}">{{t?.nombre}}</option>
                 </select>
                 <label>Tipo Solicitud</label>
               </div>
@@ -38,7 +38,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <select>
-                  <option *ngFor="let b of investigacionLista" value="{{b.id}}">{{b.nombre}}</option>
+                  <option *ngFor="let b of investigacionLista" value="{{b.id}}">{{b?.nombre}}</option>
                 </select>
                 <label>Linea de Investigacion</label>
               </div>

@@ -3,8 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { DepartamentoModel } from 'src/app/models/departamento.model';
+import { FacultadModel } from 'src/app/models/facultad.model';
 import { DepartamentoService } from 'src/app/service/parameters/departamento.service';
+import { FacultadService } from 'src/app/service/parameters/facultad.service';
 declare const ShowGeneralMessage: any;
+declare const InitSelects:any;
 
 @Component({
   selector: 'app-departamento-crear',
@@ -14,14 +17,31 @@ declare const ShowGeneralMessage: any;
 export class DepartamentoCrearComponent implements OnInit {
 
   dataForm: FormGroup = new FormGroup({});
+  facultadList: FacultadModel[] = [];
+
   constructor(
     private fb: FormBuilder,
-  private router: Router,
-  private service: DepartamentoService
-    ) { }
+    private router: Router,
+    private service: DepartamentoService,
+    private facultadService : FacultadService,
+    
+  ) { }
 
+  GetDataForSelects(){
+    this.facultadService.GetRecordList().subscribe({
+      next: (data: FacultadModel[])=>{
+        this.facultadList= data;
+
+        setTimeout(()=>{
+          InitSelects("selFacultad")
+        },100);
+      }
+    });
+  }
+  
   ngOnInit(): void {
     this.FormBuilding();
+    this.GetDataForSelects();
   }
 
   FormBuilding() {
@@ -31,17 +51,17 @@ export class DepartamentoCrearComponent implements OnInit {
     });
   }
 
-  saveRecord(){
-    let model=new DepartamentoModel();
-    model.nombre=this.GetDF["name"].value;
-    model.id_facultad=this.GetDF["facultad"].value;
-
-this.service.saveRecord(model).subscribe({
-next:(data: DepartamentoModel)=>{
-ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
-this.router.navigate(["parameters/departamento-listar"])
-}
-});
+  saveRecord() {
+    let model = new DepartamentoModel();
+    model.nombre = this.GetDF["name"].value;
+    model.id_facultad = parseInt(this.GetDF["facultad"].value);
+    
+    this.service.saveRecord(model).subscribe({
+      next: (data: DepartamentoModel) => {
+        ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
+        this.router.navigate(["parameters/departamento-listar"])
+      }
+    });
   }
 
   get GetDF() {

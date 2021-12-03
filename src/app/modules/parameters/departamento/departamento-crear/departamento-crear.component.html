@@ -6,11 +6,12 @@
           <label for="txtName">Nombre</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input formControlName="facultad"  id="txtFacultad" type="text" >
-          <label for="txtFacultad">ID Facultad</label>
-        </div>
+
+      <div class="input-field col s12">
+        <select id="selFacultad" formControlName="facultad">
+          <option *ngFor="let d of facultadList" value="{{d.id}}">{{d.nombre}}</option>
+        </select>
+        <label>Facultad</label>
       </div>
       
      
@@ -20,5 +21,6 @@
       &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/departamento-listar">Cancelar</a>
         </div>
       </div>
+      
     </form>
   </div>

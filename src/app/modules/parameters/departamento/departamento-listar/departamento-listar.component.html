@@ -3,7 +3,7 @@
 
 
 <fieldset>
-    <legend>Listado de Modalidades</legend>
+    <legend>Listado de Departamentos</legend>
 <table>
     <thead>
         <tr>
@@ -15,7 +15,7 @@
     Nombre
 </th>
 <th>
-    Formato
+    Facultad
 </th>
 
 <th>
@@ -33,7 +33,7 @@
     {{r.nombre}}
 </td>
 <td>
-    {{r.id_facultad}}
+    {{r.facultad?.nombre}}
 </td>
 <td>
     <a routerLink="/parameters/departamento-editar/{{r.id}}" class="btn btn-warning orange">Editar</a>

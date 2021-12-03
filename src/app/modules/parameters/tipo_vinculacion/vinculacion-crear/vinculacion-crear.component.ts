@@ -39,7 +39,7 @@ export class VinculacionCrearComponent implements OnInit {
 this.service.saveRecord(model).subscribe({
 next:(data: TipoVinculacionModel)=>{
 ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
-this.router.navigate(["/parameters/viculacion-listar"])
+this.router.navigate(["/parameters/vinculacion-listar"])
 }
 });
   }

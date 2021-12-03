@@ -14,8 +14,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
 function InitSelects() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, {
-    });
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {
+  });
+}
+
+function InitSelects(selectId) {
+    var elems = document.querySelectorAll('#'+ selectId);
+    var instances = M.FormSelect.init(elems, {});
 }
