@@ -49,9 +49,9 @@ export class ProponenteRemoverComponent implements OnInit {
   this.foto=data.foto;
   this.snombre=data.OtroNombre;
   this.idvinculacion=data.id_vinculacion;
-  this.papellido=data.primerApellido;
+  this.papellido=data.PrimerApellido;
   this.pnombre=data.PrimerNombre;
-  this.sapellido=data.segundoApellido;
+  this.sapellido=data.SegundoApellido;
 
   }
       }

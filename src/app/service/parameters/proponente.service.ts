@@ -30,9 +30,9 @@ export class ProponenteService {
   telefono: data.numCelular,
   id_tipoVinculacion:data.id_vinculacion,
   otrosNombres:data.OtroNombre,
-  p_apellido:data.primerApellido,
+  p_apellido:data.PrimerApellido,
   p_nombre:data.PrimerNombre,
-  s_apellido:data.segundoApellido,
+  s_apellido:data.SegundoApellido,
   
   foto:data.foto
 
@@ -54,9 +54,9 @@ export class ProponenteService {
       telefono: data.numCelular,
       id_tipoVinculacion:data.id_vinculacion,
       otrosNombres:data.OtroNombre,
-      p_apellido:data.primerApellido,
+      p_apellido:data.PrimerApellido,
       p_nombre:data.PrimerNombre,
-      s_apellido:data.segundoApellido,
+      s_apellido:data.SegundoApellido,
       
       foto:data.foto
 

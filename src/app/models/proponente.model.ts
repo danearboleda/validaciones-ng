@@ -6,12 +6,12 @@ export class ProponenteModel{
     documento?:string;
     PrimerNombre?:string;
     OtroNombre?:string;
-    primerApellido?:string;
-    segundoApellido?:string;
+    PrimerApellido?:string;
+    SegundoApellido?:string;
     correo?:string; 
     numCelular?:string;
-   id_vinculacion?:number;
+   id_vinculacion?:TipoVinculacionModel;
    id_departamento?:DepartamentoModel;
    foto?:string;
-   vinculacion?:TipoVinculacionModel;
+   vinculaciones?:TipoVinculacionModel;
  }

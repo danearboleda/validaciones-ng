@@ -42,6 +42,9 @@
 <th>
     Foto
 </th>
+<th>
+    Acciones
+</th>
 </tr>
 
     </thead>
@@ -60,10 +63,10 @@
     {{r.OtroNombre}}
 </td>
 <td>
-    {{r.primerApellido}}
+    {{r.PrimerApellido}}
 </td>
 <td>
-    {{r.segundoApellido}} hola
+    {{r.SegundoApellido}}
 </td>
 <td>
     {{r.correo}}
@@ -72,7 +75,7 @@
     {{r.numCelular}}
 </td>
 <td>
-    {{r.vinculacion?.nombre}}
+    {{r.id_vinculacion}}
 </td>
 <td>
     {{r.id_departamento}}
@@ -80,6 +83,7 @@
 <td>
     {{r.foto}}
 </td>
+
 <td>
     <a routerLink="/parameters/proponente-editar/{{r.id}}" class="btn btn-warning orange">Editar</a>
    &nbsp; <a routerLink="/parameters/proponente-remover/{{r.id}}" class="btn btn-warning red">Eliminar</a>

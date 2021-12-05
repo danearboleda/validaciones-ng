@@ -53,9 +53,9 @@ this.GetDF["correo"].setValue(data.correo);
 this.GetDF["foto"].setValue(data.foto);
 this.GetDF["id_vinculacion"].setValue(data.id_vinculacion);
 this.GetDF["s_name"].setValue(data.OtroNombre);
-this.GetDF["p_apellido"].setValue(data.primerApellido);
+this.GetDF["p_apellido"].setValue(data.PrimerApellido);
 this.GetDF["p_nombre"].setValue(data.PrimerNombre);
-this.GetDF["s_apellido"].setValue(data.segundoApellido);
+this.GetDF["s_apellido"].setValue(data.SegundoApellido);
 this.GetDF["telefono"].setValue(data.numCelular);
 
 }
@@ -69,9 +69,9 @@ this.GetDF["telefono"].setValue(data.numCelular);
     model.id=this.GetDF["id"].value;
     model.id_vinculacion=this.GetDF["id_vinculacion"].value;
     model.OtroNombre=this.GetDF["s_name"].value;
-    model.primerApellido=this.GetDF["p_apellido"].value;
+    model.PrimerApellido=this.GetDF["p_apellido"].value;
     model.PrimerNombre=this.GetDF["p_nombre"].value;
-    model.segundoApellido=this.GetDF["s_apellido"].value;
+    model.SegundoApellido=this.GetDF["s_apellido"].value;
     model.numCelular=this.GetDF["telefono"].value;
 
 

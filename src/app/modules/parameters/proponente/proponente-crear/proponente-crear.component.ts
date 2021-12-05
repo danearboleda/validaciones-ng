@@ -73,9 +73,9 @@ file:["",[]]
     model.foto=this.GetDF["foto"].value;
     model.id_vinculacion=this.GetDF["id_vinculacion"].value;
     model.OtroNombre=this.GetDF["s_name"].value;
-    model.primerApellido=this.GetDF["p_apellido"].value;
+    model.PrimerApellido=this.GetDF["p_apellido"].value;
     model.PrimerNombre=this.GetDF["p_nombre"].value;
-    model.segundoApellido=this.GetDF["s_apellido"].value;
+    model.SegundoApellido=this.GetDF["s_apellido"].value;
     model.numCelular=this.GetDF["telefono"].value;
 
 
