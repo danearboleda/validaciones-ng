@@ -37,6 +37,9 @@
     ID tipo vinculacion
 </th>
 <th>
+    ID Departamento
+</th>
+<th>
     Foto
 </th>
 </tr>
@@ -60,7 +63,7 @@
     {{r.primerApellido}}
 </td>
 <td>
-    {{r.segundoApellido}}
+    {{r.segundoApellido}} hola
 </td>
 <td>
     {{r.correo}}
@@ -69,7 +72,10 @@
     {{r.numCelular}}
 </td>
 <td>
-    {{r.id_vinculacion}}
+    {{r.vinculacion?.nombre}}
+</td>
+<td>
+    {{r.id_departamento}}
 </td>
 <td>
     {{r.foto}}

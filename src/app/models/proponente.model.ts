@@ -1,3 +1,6 @@
+import { DepartamentoModel } from "./departamento.model";
+import { TipoVinculacionModel } from "./tipoViculacion.model";
+
 export class ProponenteModel{
     id?:number;
     documento?:string;
@@ -8,6 +11,7 @@ export class ProponenteModel{
     correo?:string; 
     numCelular?:string;
    id_vinculacion?:number;
-   id_departamento?:number;
+   id_departamento?:DepartamentoModel;
    foto?:string;
+   vinculacion?:TipoVinculacionModel;
  }

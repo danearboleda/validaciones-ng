@@ -1,54 +1,79 @@
 <div class="row">
+  <form [formGroup]="FotodataForm" class="col s12">
+    <div class="row">
+      <div class="col s12 center-align">
+        <img *ngIf="!uploadedPhoto" src="assets/images/fotow.jpg" class="foto">
+        <img *ngIf="uploadedPhoto" src="{{url_server}}/archivo/1/{{uploadedFileName}}" class="foto">
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 center-align">
+        <input  class="btn orange" type="file" (change)="UploadPhoto($event)"name="image" />
+      <button class="btn btn-success" type="button" (click)="SubmitFileToServer()">Cargar Foto</button>
+      </div>   
+    </div>
+  </form>
+</div>
+<div class="row">
     <form [formGroup]="dataForm" class="col s12">
+     <input type="hidden" formControlName="foto"/>
       <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="documento"  id="txtDocumento" type="text" >
+        <div class="input-field col s4">
+          <input formControlName="documento"  id="txtDocumento" type="number" >
           <label for="txtDocumento">Documento</label>
         </div>
+        
       </div>
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s4">
           <input formControlName="p_nombre"  id="txtPnombre" type="text" >
           <label for="txtPnombre">Primer nombre</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s4">
           <input formControlName="s_name"  id="txtName" type="text" >
           <label for="txtName">Otros nombres</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <input formControlName="p_apellido"  id="txtName" type="text" >
           <label for="txtName">Primer apellido</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <input formControlName="s_apellido"  id="txtSapellido" type="text" >
           <label for="txtSapellido">Segundo apellido</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <input formControlName="correo"  id="txtCorreo" type="text" >
           <label for="txtCorreo">Correo Electronico</label>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <input formControlName="telefono"  id="txtTel" type="number" >
           <label for="txtTel">Numero Celular</label>
         </div>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="id_vinculacion"  id="txtVinculacion" type="text" >
-          <label for="txtVinculacion">ID tipo vinculacion</label>
-        </div>
-      </div>
-     
+   
+  <div class="input-field col s12">
+    
+      <select id="selVinculo" formControlName="id_vinculacion">
+
+     <option *ngFor="let v of vinculoList" value="{v.id}">{{v.nombre}}</option>
+    </select>
+    <label>Tipo Vinculacion</label>
+  </div>
+    <!--
+    -->
+   
+    <!---->
       <div class="row">
         <div class="col s12">
          <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>

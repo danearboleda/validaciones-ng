@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { ProponenteModel } from 'src/app/models/proponente.model';
+import { UploadedFile } from 'src/app/models/uploaded.file.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
@@ -11,12 +12,13 @@ import { LocalStorageService } from '../shared/local-storage.service';
 export class ProponenteService {
   url: string = ConfigurationData.BUSSINESS2_MS_URL;
   tk:string=""; 
+  filter:string=`?filter={%22include%22:[{%22relation%22:%22vinculaciones%22},{%22relation%22:%22tiene_departamento%22}]}`;
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
     this.tk=this.localStorageService.GetToken();
   }
 
   GetRecordList(): Observable<ProponenteModel[]>{
-    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes`);
+    return this.http.get<ProponenteModel[]>(`${this.url}/proponentes${this.filter}`);
   }
  
 
@@ -47,6 +49,7 @@ export class ProponenteService {
   }
   EditRecord(data: ProponenteModel): Observable<ProponenteModel>{
     return this.http.put<ProponenteModel>(`${this.url}/proponentes/${data.id}`, {
+      id:data.id,
       correo: data.correo,
       telefono: data.numCelular,
       id_tipoVinculacion:data.id_vinculacion,
@@ -66,6 +69,16 @@ export class ProponenteService {
   }
   RemoveRecord(id: number): Observable<any>{
     return this.http.delete<any>(`${this.url}/proponentes/${id}`,{
+      headers: new HttpHeaders({
+       Authorization:`Bearer ${this.tk}` 
+      })
+        });
+  }
+
+  UploadFoto(form: FormData):Observable<UploadedFile>{
+    return this.http.post<UploadedFile>(`${this.url}/CargarFoto`,
+    form,
+    {
       headers: new HttpHeaders({
        Authorization:`Bearer ${this.tk}` 
       })
