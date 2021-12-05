@@ -25,11 +25,11 @@ export class ProponenteService {
   saveRecord(data: ProponenteModel): Observable<ProponenteModel>{
     return this.http.post<ProponenteModel>(`${this.url}/proponentes`, {
   correo: data.correo,
-  telefono: data.telefono,
-  id_tipoVinculacion:data.id_tipoVinculacion,
-  otrosNombres:data.otrosNombres,
+  telefono: data.numCelular,
+  id_tipoVinculacion:data.id_vinculacion,
+  otrosNombres:data.OtroNombre,
   p_apellido:data.primerApellido,
-  p_nombre:data.primerNombre,
+  p_nombre:data.PrimerNombre,
   s_apellido:data.segundoApellido,
   
   foto:data.foto
@@ -48,11 +48,11 @@ export class ProponenteService {
   EditRecord(data: ProponenteModel): Observable<ProponenteModel>{
     return this.http.put<ProponenteModel>(`${this.url}/proponentes/${data.id}`, {
       correo: data.correo,
-      telefono: data.telefono,
-      id_tipoVinculacion:data.id_tipoVinculacion,
-      otrosNombres:data.otrosNombres,
+      telefono: data.numCelular,
+      id_tipoVinculacion:data.id_vinculacion,
+      otrosNombres:data.OtroNombre,
       p_apellido:data.primerApellido,
-      p_nombre:data.primerNombre,
+      p_nombre:data.PrimerNombre,
       s_apellido:data.segundoApellido,
       
       foto:data.foto

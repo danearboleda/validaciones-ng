@@ -43,12 +43,12 @@ export class ProponenteCrearComponent implements OnInit {
     let model=new ProponenteModel();
     model.correo=this.GetDF["correo"].value;
     model.foto=this.GetDF["foto"].value;
-    model.id_tipoVinculacion=this.GetDF["id_vinculacion"].value;
-    model.otrosNombres=this.GetDF["s_name"].value;
+    model.id_vinculacion=this.GetDF["id_vinculacion"].value;
+    model.OtroNombre=this.GetDF["s_name"].value;
     model.primerApellido=this.GetDF["p_apellido"].value;
-    model.primerNombre=this.GetDF["p_nombre"].value;
+    model.PrimerNombre=this.GetDF["p_nombre"].value;
     model.segundoApellido=this.GetDF["s_apellido"].value;
-    model.telefono=this.GetDF["telefono"].value;
+    model.numCelular=this.GetDF["telefono"].value;
 
 
 

@@ -51,12 +51,12 @@ next:(data: ProponenteModel)=>{
 this.GetDF["id"].setValue(data.id);
 this.GetDF["correo"].setValue(data.correo);
 this.GetDF["foto"].setValue(data.foto);
-this.GetDF["id_vinculacion"].setValue(data.id_tipoVinculacion);
-this.GetDF["s_name"].setValue(data.otrosNombres);
+this.GetDF["id_vinculacion"].setValue(data.id_vinculacion);
+this.GetDF["s_name"].setValue(data.OtroNombre);
 this.GetDF["p_apellido"].setValue(data.primerApellido);
-this.GetDF["p_nombre"].setValue(data.primerNombre);
+this.GetDF["p_nombre"].setValue(data.PrimerNombre);
 this.GetDF["s_apellido"].setValue(data.segundoApellido);
-this.GetDF["telefono"].setValue(data.telefono);
+this.GetDF["telefono"].setValue(data.numCelular);
 
 }
 });
@@ -67,12 +67,12 @@ this.GetDF["telefono"].setValue(data.telefono);
     model.correo=this.GetDF["correo"].value;
     model.foto=this.GetDF["foto"].value;
     model.id=this.GetDF["id"].value;
-    model.id_tipoVinculacion=this.GetDF["id_vinculacion"].value;
-    model.otrosNombres=this.GetDF["s_name"].value;
+    model.id_vinculacion=this.GetDF["id_vinculacion"].value;
+    model.OtroNombre=this.GetDF["s_name"].value;
     model.primerApellido=this.GetDF["p_apellido"].value;
-    model.primerNombre=this.GetDF["p_nombre"].value;
+    model.PrimerNombre=this.GetDF["p_nombre"].value;
     model.segundoApellido=this.GetDF["s_apellido"].value;
-    model.telefono=this.GetDF["telefono"].value;
+    model.numCelular=this.GetDF["telefono"].value;
 
 
 

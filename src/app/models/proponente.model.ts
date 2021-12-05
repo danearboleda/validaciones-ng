@@ -1,12 +1,13 @@
 export class ProponenteModel{
     id?:number;
     documento?:string;
-    primerNombre?:string;
-    otrosNombres?:string;
+    PrimerNombre?:string;
+    OtroNombre?:string;
     primerApellido?:string;
     segundoApellido?:string;
     correo?:string; 
-    telefono?:string;
-   id_tipoVinculacion?:number;
+    numCelular?:string;
+   id_vinculacion?:number;
+   id_departamento?:number;
    foto?:string;
  }
