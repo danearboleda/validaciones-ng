@@ -44,14 +44,14 @@ export class ProponenteRemoverComponent implements OnInit {
       next:(data: ProponenteModel)=>{
   if(data.id && data.correo){
         this.id=data.id;
-  this.celular=data.telefono;
+  this.celular=data.numCelular;
   this.correo=data.correo;
-  this.foto=data.foto;
-  this.snombre=data.otrosNombres;
-  this.idvinculacion=data.id_tipoVinculacion;
-  this.papellido=data.primerApellido;
-  this.pnombre=data.primerNombre;
-  this.sapellido=data.segundoApellido;
+  this.foto=data.Foto;
+  this.snombre=data.OtroNombre;
+  this.idvinculacion=data.id_vinculacion;
+  this.papellido=data.PrimerApellido;
+  this.pnombre=data.PrimerNombre;
+  this.sapellido=data.SegundoApellido;
 
   }
       }

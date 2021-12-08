@@ -1,12 +1,18 @@
+import { DepartamentoModel } from "./departamento.model";
+import { TipoVinculacionModel } from "./tipoViculacion.model";
+
 export class ProponenteModel{
     id?:number;
     documento?:string;
-    primerNombre?:string;
-    otrosNombres?:string;
-    primerApellido?:string;
-    segundoApellido?:string;
+    PrimerNombre?:string;
+    OtroNombre?:string;
+    PrimerApellido?:string;
+    SegundoApellido?:string;
     correo?:string; 
-    telefono?:string;
-   id_tipoVinculacion?:number;
-   foto?:string;
+    numCelular?:string;
+   id_vinculacion?:number;
+   id_departamento?:number;
+   Foto?:string;
+   vinculaciones?:TipoVinculacionModel;
+   tiene_departamento?:DepartamentoModel;
  }

@@ -2,9 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
+import { DepartamentoModel } from 'src/app/models/departamento.model';
 import { ProponenteModel } from 'src/app/models/proponente.model';
+import { UploadedFile } from 'src/app/models/uploaded.file.model';
+
+import { TipoVinculacionModel } from 'src/app/models/tipoViculacion.model';
+import { DepartamentoService } from 'src/app/service/parameters/departamento.service';
 import { ProponenteService } from 'src/app/service/parameters/proponente.service';
+import { TipoVinculacionService } from 'src/app/service/parameters/tipo-vinculacion.service';
 declare const ShowGeneralMessage: any;
+declare const InitSelects:any;
 
 @Component({
   selector: 'app-proponente-editar',
@@ -14,18 +21,33 @@ declare const ShowGeneralMessage: any;
 export class ProponenteEditarComponent implements OnInit {
 
   dataForm: FormGroup = new FormGroup({});
+  FotodataForm: FormGroup = new FormGroup({});
+  uploadedPhoto:boolean=false;
+  uploadedFileName?:string="";
+  url_server:string=ConfigurationData.BUSSINESS2_MS_URL;
+  vinculoList: TipoVinculacionModel[]=[];
+  departamentoList: DepartamentoModel[]=[];
   constructor(
     private fb: FormBuilder,
   private router: Router,
   private service: ProponenteService,
-  private route: ActivatedRoute
+  private route: ActivatedRoute,
+  private VinculacionService: TipoVinculacionService,
+  private departamentoService: DepartamentoService
     ) { }
 
   ngOnInit(): void {
     this.FormBuilding();
     this.searchRecord();
-  }
+    this.GetDataForSelects();
+    this.FormFoto();
 
+  }
+  FormFoto(){
+    this.FotodataForm=this.fb.group({
+ file:["",[]]
+    });
+   }
   FormBuilding() {
     this.dataForm = this.fb.group({
       id: ["", [Validators.required]],
@@ -38,6 +60,8 @@ export class ProponenteEditarComponent implements OnInit {
       s_apellido: ["", [Validators.required]],
       p_apellido: ["", [Validators.required]],
       id_vinculacion: ["", [Validators.required]],
+      id_departamento: ["", [Validators.required]],
+
       foto: ["", []]
      
     });
@@ -50,29 +74,60 @@ this.service.SearchRecord(id).subscribe({
 next:(data: ProponenteModel)=>{
 this.GetDF["id"].setValue(data.id);
 this.GetDF["correo"].setValue(data.correo);
-this.GetDF["foto"].setValue(data.foto);
-this.GetDF["id_vinculacion"].setValue(data.id_tipoVinculacion);
-this.GetDF["s_name"].setValue(data.otrosNombres);
-this.GetDF["p_apellido"].setValue(data.primerApellido);
-this.GetDF["p_nombre"].setValue(data.primerNombre);
-this.GetDF["s_apellido"].setValue(data.segundoApellido);
-this.GetDF["telefono"].setValue(data.telefono);
+this.GetDF["foto"].setValue(data.Foto);
+this.GetDF["id_vinculacion"].setValue(data.id_vinculacion);
+this.GetDF["id_departamento"].setValue(data.id_departamento);
+this.GetDF["documento"].setValue(data.documento);
+
+this.GetDF["s_name"].setValue(data.OtroNombre);
+this.GetDF["p_apellido"].setValue(data.PrimerApellido);
+this.GetDF["p_nombre"].setValue(data.PrimerNombre);
+this.GetDF["s_apellido"].setValue(data.SegundoApellido);
+this.GetDF["telefono"].setValue(data.numCelular);
 
 }
 });
   }
 
+  GetDataForSelects(){
+    this.VinculacionService.GetRecordList().subscribe({
+      next: (data: TipoVinculacionModel[])=>{
+        this.vinculoList= data;
+
+        setTimeout(()=>{
+          InitSelects("selVinculo");
+         
+        },100);
+      }
+    });
+    this.departamentoService.GetRecordList().subscribe({
+      next: (data: DepartamentoModel[])=>{
+        this.departamentoList= data;
+
+        setTimeout(()=>{
+          InitSelects("selDepartamento");
+         
+        },100);
+      }
+    });
+  }
+
   saveRecord(){
     let model=new ProponenteModel();
     model.correo=this.GetDF["correo"].value;
-    model.foto=this.GetDF["foto"].value;
+    model.Foto=this.GetDF["foto"].value;
     model.id=this.GetDF["id"].value;
-    model.id_tipoVinculacion=this.GetDF["id_vinculacion"].value;
-    model.otrosNombres=this.GetDF["s_name"].value;
-    model.primerApellido=this.GetDF["p_apellido"].value;
-    model.primerNombre=this.GetDF["p_nombre"].value;
-    model.segundoApellido=this.GetDF["s_apellido"].value;
-    model.telefono=this.GetDF["telefono"].value;
+    model.id_vinculacion=parseInt(this.GetDF["id_vinculacion"].value);
+    model.id_departamento=parseInt(this.GetDF["id_departamento"].value);
+
+    model.OtroNombre=this.GetDF["s_name"].value;
+    model.PrimerApellido=this.GetDF["p_apellido"].value;
+    model.PrimerNombre=this.GetDF["p_nombre"].value;
+    model.SegundoApellido=this.GetDF["s_apellido"].value;
+    model.numCelular=this.GetDF["telefono"].value;
+    model.documento=this.GetDF["documento"].value;
+    console.log((model.Foto));
+
 
 
 
@@ -85,8 +140,45 @@ this.router.navigate(["parameters/proponente-listar"])
   }
 
   searchRecord(){
-
+    let id = this.route.snapshot.params["id"];
+    this.service.SearchRecord(id).subscribe({
+      next: (data: ProponenteModel) => {
+        this.GetDF["id"].setValue(data.id);
+        this.GetDF["p_nombre"].setValue(data.PrimerNombre);
+        this.GetDF["s_name"].setValue(data.OtroNombre);
+        this.GetDF["p_apellido"].setValue(data.PrimerApellido);
+        this.GetDF["s_apellido"].setValue(data.SegundoApellido);
+        this.GetDF["correo"].setValue(data.correo);
+        this.GetDF["telefono"].setValue(data.numCelular);
+        this.GetDF["foto"].setValue(data.Foto);
+        this.GetDF["id_vinculacion"].setValue(data.id_vinculacion);
+        this.GetDF["id_departamento"].setValue(data.id_departamento);
+        this.GetDF["documento"].setValue(data.documento);
+  
+      }
+    });
   }
+
+  
+  UploadPhoto(event:any){
+    if(event.target.files.length>0){
+      const file=event.target.files[0];
+      this.FotodataForm.controls["file"].setValue(file);
+    //this.SubmitFileToServer();
+    }
+      }
+
+      SubmitFileToServer(){
+        const form=new FormData();
+        form.append("file", this.FotodataForm.controls["file"].value);
+      this.service.UploadFoto(form).subscribe({
+        next: (data:UploadedFile)=>{
+          this.dataForm.controls["foto"].setValue(data.filename);
+        this.uploadedPhoto=true;
+        this.uploadedFileName=data.filename;
+        }
+      })
+      }
 
   get GetDF() {
     return this.dataForm.controls;
