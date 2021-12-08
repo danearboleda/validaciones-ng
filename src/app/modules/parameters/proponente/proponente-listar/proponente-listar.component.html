@@ -1,6 +1,6 @@
 <br/>
 <a routerLink="/parameters/proponente-crear" class="btn btn-success">Agregar Registro</a>
-
+<!--
 
 <fieldset>
     <legend>Listado de Proponentes</legend>
@@ -75,13 +75,14 @@
     {{r.numCelular}}
 </td>
 <td>
-    {{r.id_vinculacion}}
+    {{r.vinculaciones?.nombre}}
 </td>
 <td>
-    {{r.id_departamento}}
+    {{r.tiene_departamento?.nombre}}
 </td>
 <td>
-    {{r.foto}}
+    
+ 
 </td>
 
 <td>
@@ -94,3 +95,36 @@
     </tbody>
 </table>
 </fieldset>
+-->
+<div class="row" >
+    <div class="col s4 " *ngFor="let r of recordList">
+      <div class="card">
+        <div class="card-image">
+          <img class="foto" *ngIf="r.Foto==''" src="assets/images/fotow.jpg">
+          <img class="foto" *ngIf="r.Foto!=''" src="{{url}}/archivo/1/{{r.Foto}}">
+
+        </div>
+        <div class="card-content">
+<ul>
+    <li>ID: {{r.id}}</li>
+    <li>Documento: {{r.documento}}</li>
+    <li>Primer Nombre: {{r.PrimerNombre}}</li>
+    <li>Otro Nombre: {{r.OtroNombre}}</li>
+    <li>Primer Apellido: {{r.PrimerApellido}}</li>
+    <li>Segundo Apellido: {{r.SegundoApellido}}</li>
+    <li>Correo: {{r.correo}}</li>
+    <li>Celular: {{r.numCelular}}</li>
+    <li>Tipo Vinculacion: {{r.vinculaciones?.nombre}}</li>
+    <li>Departamento: {{r.tiene_departamento?.nombre}}</li>
+    
+</ul>
+
+        </div>
+        <div class="card-action">
+            <a routerLink="/parameters/proponente-editar/{{r.id}}" class="btn btn-warning orange">Editar</a>
+            &nbsp; <a routerLink="/parameters/proponente-remover/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+         
+        </div>
+      </div>
+    </div>
+  </div>

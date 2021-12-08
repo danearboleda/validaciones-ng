@@ -10,8 +10,9 @@ export class ProponenteModel{
     SegundoApellido?:string;
     correo?:string; 
     numCelular?:string;
-   id_vinculacion?:TipoVinculacionModel;
-   id_departamento?:DepartamentoModel;
-   foto?:string;
+   id_vinculacion?:number;
+   id_departamento?:number;
+   Foto?:string;
    vinculaciones?:TipoVinculacionModel;
+   tiene_departamento?:DepartamentoModel;
  }

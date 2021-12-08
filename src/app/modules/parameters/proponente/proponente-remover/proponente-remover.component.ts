@@ -46,7 +46,7 @@ export class ProponenteRemoverComponent implements OnInit {
         this.id=data.id;
   this.celular=data.numCelular;
   this.correo=data.correo;
-  this.foto=data.foto;
+  this.foto=data.Foto;
   this.snombre=data.OtroNombre;
   this.idvinculacion=data.id_vinculacion;
   this.papellido=data.PrimerApellido;

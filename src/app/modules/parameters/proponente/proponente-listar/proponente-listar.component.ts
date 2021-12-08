@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { ProponenteModel } from 'src/app/models/proponente.model';
 import { ProponenteService } from 'src/app/service/parameters/proponente.service';
 
@@ -10,7 +11,7 @@ import { ProponenteService } from 'src/app/service/parameters/proponente.service
 export class ProponenteListarComponent implements OnInit {
 
   recordList: ProponenteModel[]=[];
-
+url:string=ConfigurationData.BUSSINESS2_MS_URL;
   constructor(private service: ProponenteService) { }
 
   ngOnInit(): void {
@@ -20,6 +21,9 @@ showRecordList(){
   this.service.GetRecordList().subscribe(
    { next:(data: ProponenteModel[])=>{
       this.recordList=data;
+    },
+    error:(err)=>{
+      console.log(err);
     }
    });
 }

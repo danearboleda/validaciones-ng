@@ -27,14 +27,15 @@ export class ProponenteService {
   saveRecord(data: ProponenteModel): Observable<ProponenteModel>{
     return this.http.post<ProponenteModel>(`${this.url}/proponentes`, {
   correo: data.correo,
-  telefono: data.numCelular,
-  id_tipoVinculacion:data.id_vinculacion,
-  otrosNombres:data.OtroNombre,
-  p_apellido:data.PrimerApellido,
-  p_nombre:data.PrimerNombre,
-  s_apellido:data.SegundoApellido,
-  
-  foto:data.foto
+  numCelular: data.numCelular,
+  id_vinculacion:data.id_vinculacion,
+  id_departamento:data.id_departamento,
+  OtroNombre:data.OtroNombre,
+PrimerApellido:data.PrimerApellido,
+  PrimerNombre:data.PrimerNombre,
+  SegundoApellido:data.SegundoApellido,
+  documento:data.documento,
+  Foto:data.Foto
 
 
 
@@ -48,17 +49,19 @@ export class ProponenteService {
     return this.http.get<ProponenteModel>(`${this.url}/proponentes/${id}`);
   }
   EditRecord(data: ProponenteModel): Observable<ProponenteModel>{
+
     return this.http.put<ProponenteModel>(`${this.url}/proponentes/${data.id}`, {
       id:data.id,
       correo: data.correo,
-      telefono: data.numCelular,
-      id_tipoVinculacion:data.id_vinculacion,
-      otrosNombres:data.OtroNombre,
-      p_apellido:data.PrimerApellido,
-      p_nombre:data.PrimerNombre,
-      s_apellido:data.SegundoApellido,
-      
-      foto:data.foto
+      numCelular: data.numCelular,
+      id_vinculacion:data.id_vinculacion,
+      id_departamento:data.id_departamento,
+      OtroNombre:data.OtroNombre,
+    PrimerApellido:data.PrimerApellido,
+      PrimerNombre:data.PrimerNombre,
+      SegundoApellido:data.SegundoApellido,
+      documento:data.documento,
+      Foto:data.Foto
 
 
     },{

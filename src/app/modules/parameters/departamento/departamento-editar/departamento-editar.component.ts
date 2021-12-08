@@ -18,6 +18,8 @@ export class DepartamentoEditarComponent implements OnInit {
 
   dataForm: FormGroup = new FormGroup({});
   facultadList: FacultadModel[] = [];
+  FotodataForm: FormGroup = new FormGroup({});
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -32,6 +34,8 @@ export class DepartamentoEditarComponent implements OnInit {
     this.FormBuilding();
     this.SearchRecord();
     this.GetDataForSelects();
+    this.FormFoto();
+
   }
 
   FormBuilding() {
@@ -42,7 +46,11 @@ export class DepartamentoEditarComponent implements OnInit {
     });
   }
 
-
+  FormFoto(){
+    this.FotodataForm=this.fb.group({
+ file:["",[]]
+    });
+   }
 
 
   SearchRecord() {
