@@ -15,13 +15,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-function InitSelects() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems, {
-  });
-}
 
-function InitSelects(selectId) {
-    var elems = document.querySelectorAll('#'+ selectId);
+
+function InitSelect(selectId) {
+    var elems = document.querySelector('#'+ selectId);
     var instances = M.FormSelect.init(elems, {});
 }

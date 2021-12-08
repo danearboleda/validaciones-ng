@@ -19,9 +19,9 @@ export class JuradoCrearComponent implements OnInit {
   dataForm: FormGroup = new FormGroup({});
   constructor(
     private fb: FormBuilder,
-  private router: Router,
-  private service: JuradoService
-    ) { }
+    private router: Router,
+    private service: JuradoService
+  ) { }
 
   ngOnInit(): void {
     this.FormBuilding();
@@ -32,27 +32,26 @@ export class JuradoCrearComponent implements OnInit {
       name: ["", [Validators.required]],
       correo: ["", [Validators.required, Validators.email]],
       tel: ["", [Validators.required]],
-      entidad: ["", [Validators.required]],
-      idJurado: ["", [Validators.required]]
+      entidad: ["", [Validators.required]]
     });
   }
 
-  saveRecord(){
-    let model=new JuradoModel();
-    model.nombre=this.GetDF["name"].value;
-    model.correo=this.GetDF["correo"].value;
-    model.telefono=this.GetDF["tel"].value;
-    model.entidad=this.GetDF["entidad"].value;
-    model.id_tipoJurado=this.GetDF["idJurado"].value;
+  saveRecord() {
+    let model = new JuradoModel();
+    model.nombre = this.GetDF["name"].value;
+    model.correo = this.GetDF["correo"].value;
+    model.telefono = this.GetDF["tel"].value;
+    model.entidad = this.GetDF["entidad"].value;
+    model.id_tipo_jurado = 1;
 
 
 
-this.service.saveRecord(model).subscribe({
-next:(data: JuradoModel)=>{
-ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
-this.router.navigate(["parameters/jurado-listar"])
-}
-});
+    this.service.saveRecord(model).subscribe({
+      next: (data: JuradoModel) => {
+        ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
+        this.router.navigate(["parameters/jurado-listar"])
+      }
+    });
   }
 
   get GetDF() {

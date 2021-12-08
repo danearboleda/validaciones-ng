@@ -23,6 +23,7 @@ export class SolicitudesListarComponent implements OnInit {
       {
         next: (data: SolicitudModel[]) => {
           this.recordList = data;
+          console.log(data);
         }
       });
   }

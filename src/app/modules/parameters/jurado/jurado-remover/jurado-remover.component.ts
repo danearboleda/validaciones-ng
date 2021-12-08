@@ -40,7 +40,7 @@ SearchRecord(){
     next:(data: JuradoModel)=>{
 if(data.id){
       this.id=data.id;
-this.id_tipoJurado=data.id_tipoJurado;
+this.id_tipoJurado=data.id_tipo_jurado;
 this.correo=data.correo;
 this.entidad=data.entidad;
 this.nombre=data.nombre;

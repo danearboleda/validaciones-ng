@@ -4,5 +4,5 @@ export class JuradoModel{
     telefono?:string;
     entidad?:string;
     correo?:string; 
-    id_tipoJurado?:string;
+    id_tipo_jurado?:number;
  }

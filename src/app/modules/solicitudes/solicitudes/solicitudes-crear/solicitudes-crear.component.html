@@ -1,66 +1,81 @@
 <div class="row">
-    <form [formGroup]="dataForm" class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <input formControlName="fecha_radicado" id="txtRadicado" type="text">
-                <label for="txtRadicado">Fecha Radicado</label>
-            </div>
-        </div>
-
-        <div class="row"> 
-            <div class="input-field col s12">
-                <input formControlName="nombre_trabajo" id="txtTrabajo" type="text">
-                <label for="txtTrabajo">Nombre Trabajo</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input formControlName="descripcion" id="txtDescripcion" type="text">
-                <label for="txtDescripcion">Descripcion</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select>
-                  <option *ngFor="let m of modalidadList" value="{{m.id}}">{{m?.nombre}}</option>
-                </select>
-                <label>Modalidad</label>
-              </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select>
-                  <option *ngFor="let t of tipoList" value="{{t.id}}">{{t?.nombre}}</option>
-                </select>
-                <label>Tipo Solicitud</label>
-              </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select>
-                  <option *ngFor="let b of investigacionLista" value="{{b.id}}">{{b?.nombre}}</option>
-                </select>
-                <label>Linea de Investigacion</label>
-              </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <select>
-                  <option>Option 3</option>
-                </select>
-                <label>Proponente</label>
-              </div>
-        </div>
-     
-
-        
+  <form [formGroup]="archivoForm" class="col s12">
+    <div class="row">
+      <div class="col s12 center-align" >
+        <img *ngIf="!uploadedArchivo" src="assets/imgs/archivoSinCargar.png" alt="" class="archivoSolicitud">
+        <img *ngIf="uploadedArchivo" src="assets/imgs/archivoShadow.jpg" alt="" class="archivoSolicitud">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 center-align"></div>
+    </div>
+    <div class="row">
+      <div class="col s12 center-align">
+        <input type="file" class="btn orange" (change)="uploadArchivo($event)" name="archivo"/>&nbsp;
+        <button class="btn btn-success" type="button" (click)="submitFileToServer()">Cargar Archivo</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="row">
+  <form [formGroup]="dataForm" class="col s12">
+    <input type="text" formControlName="archivo" />
+    <div class="row">
+      <div class="input-field col s4">
+        <input formControlName="fecha_radicado" id="txtRadicado" type="text">
+        <label for="txtRadicado">Fecha Radicado</label>
+      </div>
+      <div class="input-field col s8">
+        <input formControlName="nombre_trabajo" id="txtTrabajo" type="text">
+        <label for="txtTrabajo">Nombre Trabajo</label>
+      </div>
+    </div>
 
 
-        <div class="row">
-            <div class="col s12">
-                <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
-                &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/comite-listar">Cancelar</a>
-            </div>
-        </div>
-    </form>
+    <div class="row">
+      <div class="input-field col s12">
+        <input formControlName="descripcion" id="txtDescripcion" type="text">
+        <label for="txtDescripcion">Descripcion</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <select formControlName="id_tipoSolicitud" id="selTipoSolicitud">
+          <option *ngFor="let t of tipoList" value="{{t.id}}">{{t.nombre}}</option>
+        </select>
+        <label>Tipo Solicitud</label>
+      </div>
+      <div class="input-field col s6">
+        <select formControlName="id_modalidad" id="selModalidad">
+          <option *ngFor="let m of modalidadList" value="{{m.id}}">{{m.nombre}}</option>
+        </select>
+        <label>Modalidad</label>
+      </div>
+    </div>
+
+
+    <div class="row">
+
+      <div class="input-field col s6">
+        <select multiple formControlName="tipoComites" id="selComites">
+          <option *ngFor="let c of comiteList" value="{{c.id}}">{{c.nombre}}</option>
+        </select>
+        <label>Comites</label>
+      </div>
+      <div class="input-field col s6">
+        <select formControlName="id_LineaInvestigacion" id="selInvestigacion">
+          <option *ngFor="let l of investigacionLista" value="{{l.id}}">{{l.nombre}}</option>
+        </select>
+        <label>Linea de Investigacion</label>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col s12">
+        <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+        &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/comite-listar">Cancelar</a>
+      </div>
+    </div>
+  </form>
 </div>

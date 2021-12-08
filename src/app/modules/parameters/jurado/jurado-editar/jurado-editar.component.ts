@@ -17,10 +17,10 @@ export class JuradoEditarComponent implements OnInit {
   dataForm: FormGroup = new FormGroup({});
   constructor(
     private fb: FormBuilder,
-  private router: Router,
-  private service: JuradoService,
-  private route: ActivatedRoute
-    ) { }
+    private router: Router,
+    private service: JuradoService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.FormBuilding();
@@ -34,7 +34,7 @@ export class JuradoEditarComponent implements OnInit {
 
       correo: ["", [Validators.required]],
       entidad: ["", [Validators.required]],
-      idJurado: ["", [Validators.required]],      
+      idJurado: ["", [Validators.required]],
       tel: ["", [Validators.required]],
 
       name: ["", [Validators.required]]
@@ -42,41 +42,41 @@ export class JuradoEditarComponent implements OnInit {
     });
   }
 
-  SearchRecord(){
-    let id=this.route.snapshot.params["id"];
+  SearchRecord() {
+    let id = this.route.snapshot.params["id"];
 
 
-this.service.SearchRecord(id).subscribe({
-next:(data: JuradoModel)=>{
-this.GetDF["id"].setValue(data.id);
-this.GetDF["correo"].setValue(data.correo);
-this.GetDF["entidad"].setValue(data.entidad);
-this.GetDF["idJurado"].setValue(data.id_tipoJurado);
-this.GetDF["name"].setValue(data.nombre);
+    this.service.SearchRecord(id).subscribe({
+      next: (data: JuradoModel) => {
+        this.GetDF["id"].setValue(data.id);
+        this.GetDF["correo"].setValue(data.correo);
+        this.GetDF["entidad"].setValue(data.entidad);
+        this.GetDF["idJurado"].setValue(data.id_tipo_jurado);
+        this.GetDF["name"].setValue(data.nombre);
 
-this.GetDF["tel"].setValue(data.telefono);
+        this.GetDF["tel"].setValue(data.telefono);
 
-}
-});
+      }
+    });
   }
-  
-
-  saveRecord(){
-    let model=new JuradoModel();
-    model.nombre=this.GetDF["name"].value;
-    model.correo=this.GetDF["correo"].value;
-    model.telefono=this.GetDF["tel"].value;
-    model.entidad=this.GetDF["entidad"].value;
-    model.id_tipoJurado=this.GetDF["idJurado"].value;
 
 
+  saveRecord() {
+    let model = new JuradoModel();
+    model.id = this.GetDF["id"].value;
+    model.nombre = this.GetDF["name"].value;
+    model.correo = this.GetDF["correo"].value;
+    model.telefono = this.GetDF["tel"].value;
+    model.entidad = this.GetDF["entidad"].value;
 
-this.service.EditRecord(model).subscribe({
-next:(data: JuradoModel)=>{
-ShowGeneralMessage(ConfigurationData.UPDATED_MESSAGE);
-this.router.navigate(["parameters/jurado-listar"])
-}
-});
+
+
+    this.service.EditRecord(model).subscribe({
+      next: (data: JuradoModel) => {
+        ShowGeneralMessage(ConfigurationData.UPDATED_MESSAGE);
+        this.router.navigate(["parameters/jurado-listar"])
+      }
+    });
   }
   get GetDF() {
     return this.dataForm.controls;

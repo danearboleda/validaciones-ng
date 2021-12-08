@@ -47,7 +47,7 @@ export class TsolicitudRemoverComponent implements OnInit {
        this.service.RemoveRecord(this.id).subscribe({
   next:(data: any)=>{
   ShowGeneralMessage(ConfigurationData.REMOVED_MESSAGE);
-  this.router.navigate(["parameters/tcsolicitud-listar"])
+  this.router.navigate(["parameters/tsolicitud-listar"])
   }
   });
     }

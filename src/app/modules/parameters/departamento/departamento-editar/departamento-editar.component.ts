@@ -7,7 +7,8 @@ import { FacultadModel } from 'src/app/models/facultad.model';
 import { DepartamentoService } from 'src/app/service/parameters/departamento.service';
 import { FacultadService } from 'src/app/service/parameters/facultad.service';
 declare const ShowGeneralMessage: any;
-declare const InitSelects:any;
+declare const InitSelect:any;
+
 
 @Component({
   selector: 'app-departamento-editar',
@@ -74,7 +75,7 @@ export class DepartamentoEditarComponent implements OnInit {
         this.facultadList= data;
 
         setTimeout(()=>{
-          InitSelects("selFacultad")
+          InitSelect("selFacultad")
         },100);
       }
     });

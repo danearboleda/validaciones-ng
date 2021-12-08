@@ -20,16 +20,22 @@
                     Descripcion
                 </th>
                 <th>
-                    Modalidad
+                    Tipo Solicitud
                 </th>
                 <th>
-                    Tipo Solicitud
+                    Modalidad
                 </th>
                 <th>
                     Linea Investigacion
                 </th>
                 <th>
-                    Proponente
+                    Comites
+                </th>
+                <th>
+                    Fecha Recordatorio
+                </th>
+                <th>
+                    Fecha Invitacion  Jurado
                 </th>
             </tr>
 
@@ -49,21 +55,34 @@
                     {{r.descripcion}}
                 </td>
                 <td>
-                    {{r.id_modalidad}}
+                    {{r.tipoSolicitudes?.nombre}}
                 </td>
                 <td>
-                    {{r.id_tipoSolicitud}}
+                    {{r.modalidades?.nombre}}
                 </td>
                 <td>
-                    {{r.id_lineaInvestigacion}}
+                    {{r.tiene_LineaInvesitgacion?.nombre}}
                 </td>
                 <td>
-                    {{r.id_proponente}}
+                    <ul>
+                        <li *ngFor="let r of r.tipoComites">{{r.nombre}}</li>
+                    </ul>
                 </td>
-                
+                <td>
+                    <ul>
+                        <li *ngFor="let r of r.recordatorios">{{r.fecha}}</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li *ngFor="let r of r.evaluacionSolicitudes">{{r.fecha_invitacion}}</li>
+                    </ul>
+                </td>
+
                 <td>
                     <a routerLink="/solicitudes/solicitudes-editar/{{r.id}}" class="btn btn-warning orange">Editar</a>
-                    &nbsp;<a routerLink="/solicitudes/solicitudes-anular/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+                    &nbsp;<a routerLink="/solicitudes/solicitudes-anular/{{r.id}}"
+                        class="btn btn-warning red">Eliminar</a>
 
                 </td>
             </tr>
