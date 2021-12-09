@@ -70,7 +70,6 @@
         <li *ngIf="activeSession"><a routerLink="parameters/comite-listar">Comites</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/tsolicitud-listar">Tipo Solicitudes</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/investigacion-listar">Lineas Investigacion</a></li>
-
         <li *ngIf="activeSession"><a routerLink="parameters/facultad-listar">Facultad</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/departamento-listar">Departamento</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/vinculacion-listar">Tipo vinculacion Prop</a></li>
@@ -81,9 +80,28 @@
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
+    <!--
     <li><a href="sass.html">Sass</a></li>
     <li><a href="badges.html">Components</a></li>
     <li><a href="collapsible.html">JavaScript</a></li>
+    -->
+    <li *ngIf="!activeSession"><a routerLink="security/login"><span class="blue-text text-darken-2">Login</span></a></li>
+
+    <!-------------------------------------------------------------------->
+
+    <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/recordatorio-listar">Recordatorio</a></li>
+    <li *ngIf="activeSession"><a routerLink="solicitudes/solicitudes-listar">Solicitudes</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/jurado-listar">Jurado</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/proponente-listar">Proponente</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/modalidad-listar">Modalidad</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/comite-listar">Comites</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/tsolicitud-listar">Tipo Solicitudes</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/investigacion-listar">Lineas Investigacion</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/facultad-listar">Facultad</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/departamento-listar">Departamento</a></li>
+    <li *ngIf="activeSession"><a routerLink="parameters/vinculacion-listar">Tipo vinculacion Prop</a></li>
+
   </ul>
 
   

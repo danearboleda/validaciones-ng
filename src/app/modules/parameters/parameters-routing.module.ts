@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { ComiteCrearComponent } from './comite/comite-crear/comite-crear.component';
 import { ComiteEditarComponent } from './comite/comite-editar/comite-editar.component';
 import { ComiteListarComponent } from './comite/comite-listar/comite-listar.component';
@@ -48,7 +49,8 @@ import { VinculacionRemoverComponent } from './tipo_vinculacion/vinculacion-remo
 const routes: Routes = [
   {
     path:"departamento-crear",
-    component: DepartamentoCrearComponent
+    component: DepartamentoCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"departamento-editar/:id",
@@ -192,15 +194,18 @@ const routes: Routes = [
   },
   {
     path:"proponente-crear",
-    component: ProponenteCrearComponent
+    component: ProponenteCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-editar/:id",
-    component: ProponenteEditarComponent
+    component: ProponenteEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-listar",
-    component: ProponenteListarComponent
+    component: ProponenteListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-remover/:id",

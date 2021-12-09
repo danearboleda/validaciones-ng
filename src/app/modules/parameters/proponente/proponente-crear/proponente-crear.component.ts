@@ -10,7 +10,7 @@ import { DepartamentoService } from 'src/app/service/parameters/departamento.ser
 import { ProponenteService } from 'src/app/service/parameters/proponente.service';
 import { TipoVinculacionService } from 'src/app/service/parameters/tipo-vinculacion.service';
 declare const ShowGeneralMessage: any;
-declare const InitSelects:any;
+declare const InitSelect:any;
 @Component({
   selector: 'app-proponente-crear',
   templateUrl: './proponente-crear.component.html',
@@ -40,7 +40,7 @@ uploadedPhoto:boolean=false;
           this.vinculoList= data;
   
           setTimeout(()=>{
-            InitSelects("selVinculo");
+            InitSelect("selVinculo");
            
           },100);
         }
@@ -50,7 +50,7 @@ uploadedPhoto:boolean=false;
           this.departamentoList= data;
   
           setTimeout(()=>{
-            InitSelects("selDepartamento");
+            InitSelect("selDepartamento");
            
           },100);
         }
