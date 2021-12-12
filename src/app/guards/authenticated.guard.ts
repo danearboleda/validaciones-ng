@@ -16,8 +16,8 @@ export class AuthenticatedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     
     let token = this.localStorageService.GetToken();
-    console.log(typeof(token));
-    if(token==""){
+    console.log(token);
+    if(token=="vacio"){
 this.router.navigate(["/security/login"]);
     return false;
 }else{

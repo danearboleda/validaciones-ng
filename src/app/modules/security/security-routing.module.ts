@@ -15,13 +15,13 @@ const routes: Routes = [
   {
     path:"login",
     component: LoginComponent,
-    canActivate:[AuthenticatedGuard]
+    canActivate:[UnauthenticatedGuard]
 
   },
   {
     path:"logout",
     component: LogoutComponent,
-    canActivate:[UnauthenticatedGuard]
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"change-password",
@@ -36,19 +36,23 @@ const routes: Routes = [
   },
   {
     path:"user-creation",
-    component: UserCreationComponent
+    component: UserCreationComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"user-edition",
-    component: UserEditionComponent
+    component: UserEditionComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"user-list",
-    component: UserListComponent
+    component: UserListComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"remove-user",
-    component: RemoveUserComponent
+    component: RemoveUserComponent,
+    canActivate:[AuthenticatedGuard]
   }
 ];
 

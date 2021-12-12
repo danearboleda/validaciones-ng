@@ -36,10 +36,11 @@ GetToken(): string{
 // no obtiene el current data
   if(currentData){
     let sessionDataJson=JSON.parse(currentData);
-return sessionDataJson.tk;
+//return sessionDataJson.tk;
+return "algun token"
   }else{
     //entra aqui y retorna vacio
-return "";
+return "vacio";
   }
 }
 
