@@ -9,7 +9,8 @@ import { FooterComponent } from './public/template/footer/footer.component';
 import { InternalServerErrorComponent } from './public/error/internal-server-error/internal-server-error.component';
 import { HomeComponent } from './public/general/home/home.component';
 import { NotFoundComponent } from './public/error/not-found/not-found.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { AddTokenService } from './interceptors/add-token.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,13 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AddTokenService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
