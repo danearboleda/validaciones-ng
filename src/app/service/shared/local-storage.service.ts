@@ -33,14 +33,11 @@ return true;
 
 GetToken(): string{
   let currentData=localStorage.getItem("session-info");
-// no obtiene el current data
   if(currentData){
     let sessionDataJson=JSON.parse(currentData);
-//return sessionDataJson.tk;
-return "algun token"
+return sessionDataJson.tk;
   }else{
-    //entra aqui y retorna vacio
-return "vacio";
+return "";
   }
 }
 

@@ -17,8 +17,7 @@ export class UnauthenticatedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       let token=this.localStorageService.GetToken();
-      console.log(token);
-if(token!="vacio"){
+if(token!=""){
 this.router.navigate(["/home"]);
 
 return false;

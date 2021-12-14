@@ -96,8 +96,8 @@ file:["",[]]
     model.PrimerApellido=this.GetDF["p_apellido"].value;
     model.PrimerNombre=this.GetDF["p_nombre"].value;
     model.SegundoApellido=this.GetDF["s_apellido"].value;
-    model.numCelular=this.GetDF["telefono"].value;
-    model.documento=this.GetDF["documento"].value;
+    model.numCelular=(this.GetDF["telefono"].value).toString();
+    model.documento=(this.GetDF["documento"].value).toString();
 
 this.service.saveRecord(model).subscribe({
 next:(data: ProponenteModel)=>{
