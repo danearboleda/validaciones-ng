@@ -11,6 +11,8 @@ import { UserEditionComponent } from './users/user-edition/user-edition.componen
 import { UserListComponent } from './users/user-list/user-list.component';
 import { RemoveUserComponent } from './users/remove-user/remove-user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     SecurityRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
+
   ]
 })
 export class SecurityModule { }

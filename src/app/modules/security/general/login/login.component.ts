@@ -9,6 +9,7 @@ import { LocalStorageService } from 'src/app/service/shared/local-storage.servic
 import { Router } from '@angular/router';
 
 
+
 declare const ShowGeneralMessage: any;
 
 @Component({
@@ -18,16 +19,28 @@ declare const ShowGeneralMessage: any;
 })
 export class LoginComponent implements OnInit {
   dataForm: FormGroup = new FormGroup({});
+  aFormGroup: FormGroup=new FormGroup({});
+  siteKey:string="";
+
   constructor(
     private fb: FormBuilder,
     private securityService: SecurityService,
   private localStorageService: LocalStorageService,
-  private router: Router
-    ) { }
+  private router: Router, private formBuilder: FormBuilder
+    ) { 
+      this.siteKey="6LdKG6EdAAAAAC8zHJm_wPCcaUXy37cvhSuxG9s7";
+
+    }
 
   ngOnInit(): void {
+    this.aFormGroup = this.formBuilder.group({
+      recaptcha: ['', Validators.required]
+    });
     this.FormBuilding();
+   
   }
+
+
 
   FormBuilding() {
     this.dataForm = this.fb.group({
@@ -37,7 +50,11 @@ export class LoginComponent implements OnInit {
   }
 
   Login() {
-    if (this.dataForm.invalid) {
+    if(this.aFormGroup.invalid){
+      ShowGeneralMessage(ConfigurationData.INVALID_RECAPTCHA);
+
+    }
+    if (this.dataForm.invalid ) {
       ShowGeneralMessage(ConfigurationData.INVALID_FORM_MESSAGE);
     }else{
       let credentials = new UserCredentialsModel();
@@ -65,5 +82,7 @@ export class LoginComponent implements OnInit {
   get GetDF() {
     return this.dataForm.controls;
   }
+ 
+  
   }
 

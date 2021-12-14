@@ -41,9 +41,17 @@
           </label>
         </div>
 
+        <form [formGroup]="aFormGroup">
+          <ngx-recaptcha2 #captchaElem
+            [siteKey]="siteKey"
+            formControlName="recaptcha">
+            <input type="submit" value="getResponse">
+          </ngx-recaptcha2>
+        </form>
+
         <br />
         <div class='row center'>
-          <button [disabled]="dataForm.controls['username'].errors || dataForm.controls['password'].errors" type='button' name='btn_login' class='col s12 btn btn-large waves-effect teal'
+          <button [disabled]="dataForm.controls['username'].errors || dataForm.controls['password'].errors || aFormGroup.controls['recaptcha'].errors" type='button' name='btn_login' class='col s12 btn btn-large waves-effect teal'
             (click)="Login()">Identificar</button>
         </div>
       </form>

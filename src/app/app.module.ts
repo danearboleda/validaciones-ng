@@ -11,6 +11,7 @@ import { HomeComponent } from './public/general/home/home.component';
 import { NotFoundComponent } from './public/error/not-found/not-found.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AddTokenService } from './interceptors/add-token.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { AddTokenService } from './interceptors/add-token.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {
