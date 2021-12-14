@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticatedGuard } from 'src/app/guards/authenticated.guard';
 import { ComiteCrearComponent } from './comite/comite-crear/comite-crear.component';
 import { ComiteEditarComponent } from './comite/comite-editar/comite-editar.component';
 import { ComiteListarComponent } from './comite/comite-listar/comite-listar.component';
@@ -48,159 +49,198 @@ import { VinculacionRemoverComponent } from './tipo_vinculacion/vinculacion-remo
 const routes: Routes = [
   {
     path:"departamento-crear",
-    component: DepartamentoCrearComponent
+    component: DepartamentoCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"departamento-editar/:id",
-    component: DepartamentoEditarComponent
+    component: DepartamentoEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"departamento-listar",
-    component: DepartamentoListarComponent
+    component: DepartamentoListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"departamento-remover/:id",
-    component: DepartamentoRemoverComponent
+    component: DepartamentoRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"facultad-crear",
-    component: FacultadCrearComponent
+    component: FacultadCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"facultad-editar/:id",
-    component: FacultadEditarComponent
+    component: FacultadEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"facultad-listar",
-    component: FacultadListarComponent
+    component: FacultadListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"facultad-remover/:id",
-    component: FacultadRemoverComponent
+    component: FacultadRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"modalidad-crear",
-    component: ModalidadCrearComponent
+    component: ModalidadCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"modalidad-editar/:id",
-    component: ModalidadEditarComponent
+    component: ModalidadEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"modalidad-listar",
-    component: ModalidadListarComponent
+    component: ModalidadListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"modalidad-remover/:id",
-    component: ModalidadRemoverComponent
+    component: ModalidadRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"recordatorio-crear",
-    component: RecordatorioCrearComponent
+    component: RecordatorioCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"recordatorio-editar/:id",
-    component: RecordatorioEditarComponent
+    component: RecordatorioEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"recordatorio-listar",
-    component: RecordatorioListarComponent
+    component: RecordatorioListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"recordatorio-remover/:id",
-    component: RecordatorioRemoverComponent
+    component: RecordatorioRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"comite-crear",
-    component: ComiteCrearComponent
+    component: ComiteCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"comite-editar/:id",
-    component: ComiteEditarComponent
+    component: ComiteEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"comite-listar",
-    component: ComiteListarComponent
+    component: ComiteListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"comite-remover/:id",
-    component: ComiteRemoverComponent
+    component: ComiteRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"tsolicitud-crear",
-    component: TsolicitudCrearComponent
+    component: TsolicitudCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"tsolicitud-editar/:id",
-    component: TsolicitudEditarComponent
+    component: TsolicitudEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"tsolicitud-listar",
-    component: TsolicitudListarComponent
+    component: TsolicitudListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"tsolicitud-remover/:id",
-    component: TsolicitudRemoverComponent
+    component: TsolicitudRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"investigacion-crear",
-    component: InvestigacionCrearComponent
+    component: InvestigacionCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"investigacion-editar/:id",
-    component: InvestigacionEditarComponent
+    component: InvestigacionEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"investigacion-listar",
-    component: InvestigacionListarComponent
+    component: InvestigacionListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"investigacion-remover/:id",
-    component: InvestigacionRemoverComponent
+    component: InvestigacionRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"vinculacion-crear",
-    component: VinculacionCrearComponent
+    component: VinculacionCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"vinculacion-editar/:id",
-    component: VinculacionEditarComponent
+    component: VinculacionEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"vinculacion-listar",
-    component: VinculacionListarComponent
+    component: VinculacionListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"vinculacion-remover/:id",
-    component: VinculacionRemoverComponent
+    component: VinculacionRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"jurado-crear",
-    component: JuradoCrearComponent
+    component: JuradoCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"jurado-editar/:id",
-    component: JuradoEditarComponent
+    component: JuradoEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"jurado-listar",
-    component: JuradoListarComponent
+    component: JuradoListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"jurado-remover/:id",
-    component: JuradoRemoverComponent
+    component: JuradoRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-crear",
-    component: ProponenteCrearComponent
+    component: ProponenteCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-editar/:id",
-    component: ProponenteEditarComponent
+    component: ProponenteEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-listar",
-    component: ProponenteListarComponent
+    component: ProponenteListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"proponente-remover/:id",
@@ -208,19 +248,23 @@ const routes: Routes = [
   },
   {
     path:"csolicitud-crear",
-    component: CsolicitudCrearComponent
+    component: CsolicitudCrearComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"csolicitud-editar/:id",
-    component: CsolicitudEditarComponent
+    component: CsolicitudEditarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"csolicitud-listar",
-    component: CsolicitudListarComponent
+    component: CsolicitudListarComponent,
+    canActivate:[AuthenticatedGuard]
   },
   {
     path:"csolicitud-remover",
-    component: CsolicitudRemoverComponent
+    component: CsolicitudRemoverComponent,
+    canActivate:[AuthenticatedGuard]
   }
 ];
 

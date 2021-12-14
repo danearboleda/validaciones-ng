@@ -110,7 +110,7 @@ export class SolicitudesCrearComponent implements OnInit {
   saveRecord() {
     let model = new SolicitudModel();
     let comites = this.GetDF["tipoComites"].value;
-    model.fecha_radicado = this.GetDF["fecha_radicado"].value,
+    model.fecha_radicado = (this.GetDF["fecha_radicado"].value).toString(),
       model.nombre_trabajo = this.GetDF["nombre_trabajo"].value,
       model.descripcion = this.GetDF["descripcion"].value,
       model.id_tipoSolicitud = parseInt(this.GetDF["id_tipoSolicitud"].value),

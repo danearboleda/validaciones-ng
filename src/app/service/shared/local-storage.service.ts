@@ -31,16 +31,15 @@ export class LocalStorageService {
 
 
 
-  GetToken(): string {
-    let currentData = localStorage.getItem("session-info");
-    // no obtiene el current data
-    if (currentData) {
-      let sessionDataJson = JSON.parse(currentData);
-      return sessionDataJson.tk;
-    } else {
-      //entra aqui y retorna vacio
-      return "";
-    }
+
+GetToken(): string{
+  let currentData=localStorage.getItem("session-info");
+  if(currentData){
+    let sessionDataJson=JSON.parse(currentData);
+return sessionDataJson.tk;
+  }else{
+return "";
+
   }
 
   GetSessionInfo(): SessionDataModel {

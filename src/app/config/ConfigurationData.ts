@@ -7,6 +7,7 @@ export namespace ConfigurationData{
     export const BUSSINESS_MS_URL = "http://localhost:3000";
     export const BUSSINESS2_MS_URL = "http://localhost:3001";
     export const SAVED_MESSAGE = "Registro almacenado."
+    export const NOT_LOGIN = "Por favor inicie sesión para continuar."
     export const UPDATED_MESSAGE = "Registro actualizado."
     export const REMOVED_MESSAGE = "Registro eliminado."
     export const PAGE_SIZE_PAGINATION = 3;
