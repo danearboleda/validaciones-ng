@@ -11,4 +11,5 @@ export namespace ConfigurationData{
     export const REMOVED_MESSAGE = "Registro eliminado."
     export const PAGE_SIZE_PAGINATION = 3;
     export const ERROR_MESSAGE = "Error en el backend."
+    export const KEY_RECOVERED = "Contraseña recueprada. Mira tu correo"
 }

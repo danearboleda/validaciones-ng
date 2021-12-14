@@ -10,43 +10,55 @@ import { LocalStorageService } from '../shared/local-storage.service';
 })
 export class ModalidadService {
   url: string = ConfigurationData.BUSSINESS_MS_URL;
-  tk:string=""; 
-  constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
-    this.tk=this.localStorageService.GetToken();
-  }
-
-  GetRecordList(): Observable<ModalidadModel[]>{
-    return this.http.get<ModalidadModel[]>(`${this.url}/modalidades`);
-  }
+  tk: string = "";
   
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
+    this.tk = this.localStorageService.GetToken();
+  }
 
-  saveRecord(data: ModalidadModel): Observable<ModalidadModel>{
-    return this.http.post<ModalidadModel>(`${this.url}/modalidades`, {
-  nombre: data.nombre
-    },{
-  headers: new HttpHeaders({
-   Authorization:`Bearer ${this.tk}` 
-  })
-    });
-  }
-  SearchRecord(id: number): Observable<ModalidadModel>{
-    return this.http.get<ModalidadModel>(`${this.url}/modalidades/${id}`);
-  }
-  EditRecord(data: ModalidadModel): Observable<ModalidadModel>{
-    return this.http.put<ModalidadModel>(`${this.url}/modalidades/${data.id}`, {
-  nombre: data.nombre
-    },{
-  headers: new HttpHeaders({
-   Authorization:`Bearer ${this.tk}` 
-  })
-    });
-  }
-  RemoveRecord(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.url}/modalidades/${id}`,{
+  GetRecordList(): Observable<ModalidadModel[]> {
+    return this.http.get<ModalidadModel[]>(`${this.url}/modalidades`, {
       headers: new HttpHeaders({
-       Authorization:`Bearer ${this.tk}` 
+        Authorization: `Bearer ${this.tk}`
       })
-        });
+    });
+  }
+
+
+  saveRecord(data: ModalidadModel): Observable<ModalidadModel> {
+    return this.http.post<ModalidadModel>(`${this.url}/modalidades`, {
+      nombre: data.nombre
+    }, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
+    });
+  }
+
+  SearchRecord(id: number): Observable<ModalidadModel> {
+    return this.http.get<ModalidadModel>(`${this.url}/modalidades/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
+    });
+  }
+
+  EditRecord(data: ModalidadModel): Observable<ModalidadModel> {
+    return this.http.put<ModalidadModel>(`${this.url}/modalidades/${data.id}`, {
+      nombre: data.nombre
+    }, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
+    });
+  }
+
+  RemoveRecord(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.url}/modalidades/${id}`, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
+    });
   }
 
 }
