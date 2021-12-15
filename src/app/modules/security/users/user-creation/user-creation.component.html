@@ -1,1 +1,41 @@
-<p>user-creation works!</p>
+<div class="row">
+    <form [formGroup]="dataForm" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="nombre"  id="txtName" type="text" >
+          <label for="txtName">Nombre</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="apellido"  id="txtApellido" type="text" >
+          <label for="txtApellido">Apellido</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input formControlName="celular"  id="txtCel" type="text" >
+          <label for="txtCel">Celular</label>
+        </div>
+       
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input formControlName="correo"  id="txtCorreo" type="text" >
+          <label for="txtCorreo">Correo</label>
+        </div>
+      </div>
+      <div class="input-field col s6">
+        <select multiple formControlName="id_rol" id="selRol">
+          <option *ngFor="let r of rolList" value="{{r._id}}">{{r.nombre}}</option>
+        </select>
+        <label>Roles</label>
+      </div>
+      <div class="row">
+        <div class="col s12">
+         <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+      &nbsp; <a class="btn btn-warning orange" routerLink="/security/user-list">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>

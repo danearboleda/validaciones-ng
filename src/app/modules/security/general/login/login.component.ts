@@ -64,8 +64,8 @@ export class LoginComponent implements OnInit {
       credentials.password = MD5(this.GetDF["password"].value).toString();
       this.securityService.Login(credentials).subscribe({
         next: (data: SessionDataModel) => {
-          console.log(data);
-          let saved = this.localStorageService.SaveSessionData(data);
+          console.log("5555555555555555"+data);
+           this.localStorageService.SaveSessionData(data);
           data.isLoggedIn = true;
           this.securityService.RefreshSessionInfo(data);
           this.router.navigate(["/home"])

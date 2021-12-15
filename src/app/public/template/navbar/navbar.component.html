@@ -62,6 +62,8 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
         <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
+        <li *ngIf="activeSession"><a routerLink="security/user-list">usuarios</a></li>
+
         <li *ngIf="activeSession"><a routerLink="parameters/recordatorio-listar">Recordatorio</a></li>
         <li *ngIf="activeSession"><a routerLink="solicitudes/solicitudes-listar">Solicitudes</a></li>
         <li *ngIf="activeSession"><a routerLink="parameters/jurado-listar">Jurado</a></li>
@@ -91,6 +93,8 @@
 
     <li *ngIf="activeSession"><a routerLink="reportes/modalidad-listar">Reportes</a></li>
     <li *ngIf="activeSession"><a routerLink="parameters/recordatorio-listar">Recordatorio</a></li>
+    <li *ngIf="activeSession"><a routerLink="security/user-list">usuarios</a></li>
+
     <li *ngIf="activeSession"><a routerLink="solicitudes/solicitudes-listar">Solicitudes</a></li>
     <li *ngIf="activeSession"><a routerLink="parameters/jurado-listar">Jurado</a></li>
     <li *ngIf="activeSession"><a routerLink="parameters/proponente-listar">Proponente</a></li>

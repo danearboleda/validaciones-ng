@@ -12,6 +12,7 @@ import { NotFoundComponent } from './public/error/not-found/not-found.component'
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AddTokenService } from './interceptors/add-token.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserDeleteComponent } from './security/user-delete/user-delete.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     InternalServerErrorComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,
