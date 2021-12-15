@@ -36,6 +36,7 @@ GetToken(): string{
   let currentData=localStorage.getItem("session-info");
   if(currentData){
     let sessionDataJson=JSON.parse(currentData);
+    console.log("si currentData" + sessionDataJson.tk) 
 return sessionDataJson.tk;
   }else{
 return "";

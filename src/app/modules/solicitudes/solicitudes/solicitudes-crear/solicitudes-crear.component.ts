@@ -33,6 +33,8 @@ export class SolicitudesCrearComponent implements OnInit {
   modalidadList: ModalidadModel[] = [];
   comiteList: ComiteModel[] = [];
   proponentesList: ProponenteModel[] = [];
+  UploadedFilename?: string = "";
+
 
   constructor(
     private fb: FormBuilder,
@@ -101,6 +103,8 @@ export class SolicitudesCrearComponent implements OnInit {
 
       }
     });
+
+    
   }
 
   FormArchivo() {
@@ -117,7 +121,8 @@ export class SolicitudesCrearComponent implements OnInit {
       id_modalidad: ["", [Validators.required]],
       id_LineaInvestigacion: ["", [Validators.required]],
       tipoComites: ["", [Validators.required]],
-      archivo: ["", [Validators.required]]
+      archivo: ["", [Validators.required]],
+      id_proponente:["", [Validators.required]]
     });
   }
 
@@ -130,7 +135,8 @@ export class SolicitudesCrearComponent implements OnInit {
       model.id_tipoSolicitud = parseInt(this.GetDF["id_tipoSolicitud"].value),
       model.id_modalidad = parseInt(this.GetDF["id_modalidad"].value),
       model.id_LineaInvestigacion = parseInt(this.GetDF["id_LineaInvestigacion"].value),
-      model.archivo = this.GetDF["archivo"].value
+      model.archivo = this.GetDF["archivo"].value,
+  
 
     this.service.saveRecord(model).subscribe({
       next: (data: SolicitudModel) => {
@@ -169,6 +175,8 @@ export class SolicitudesCrearComponent implements OnInit {
       next: (data: UploadFile) => {
         this.dataForm.controls["archivo"].setValue(data.filename);
         this.uploadedArchivo = true;
+        this.UploadedFilename = data.filename;
+
       }
     })
   }

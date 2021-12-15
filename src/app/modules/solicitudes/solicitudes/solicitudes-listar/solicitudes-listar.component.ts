@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProponenteModel } from 'src/app/models/proponente.model';
 import { SolicitudModel } from 'src/app/models/solicitud.model';
 import { SolicitudService } from 'src/app/service/solicitudes/solicitud.service';
 
@@ -10,6 +11,7 @@ import { SolicitudService } from 'src/app/service/solicitudes/solicitud.service'
 export class SolicitudesListarComponent implements OnInit {
 
   recordList: SolicitudModel[] =[];
+  proponenteList: ProponenteModel[]=[];
 
   constructor(
     private service: SolicitudService
