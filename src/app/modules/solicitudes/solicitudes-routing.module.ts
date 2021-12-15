@@ -31,7 +31,7 @@ const routes: Routes = [
     component: SolicitudesAnularComponent
   },
   {
-    path:"esolicitud-crear",
+    path:"esolicitud-crear/:id",
     component: EsolicitudCrearComponent
   },
   {

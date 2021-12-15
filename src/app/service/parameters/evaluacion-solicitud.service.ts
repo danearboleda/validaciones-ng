@@ -11,63 +11,59 @@ import { LocalStorageService } from '../shared/local-storage.service';
 export class EvaluacionSolicitudService {
 
   url: string = ConfigurationData.BUSSINESS_MS_URL;
-  tk:string=""; 
+  tk: string = "";
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
-    this.tk=this.localStorageService.GetToken();
+    this.tk = this.localStorageService.GetToken();
   }
 
-  GetRecordList(): Observable<EvaluacionSolicitudModel[]>{
+  GetRecordList(): Observable<EvaluacionSolicitudModel[]> {
     return this.http.get<EvaluacionSolicitudModel[]>(`${this.url}/evaluacion-solicitudes`);
   }
-  saveRecord(data: EvaluacionSolicitudModel): Observable<EvaluacionSolicitudModel>{
+  saveRecord(data: EvaluacionSolicitudModel): Observable<EvaluacionSolicitudModel> {
     return this.http.post<EvaluacionSolicitudModel>(`${this.url}/evaluacion-solicitudes`, {
-  id_solicitud: data.id_solicitud,
-  id_jurado: data.id_jurado,
-  fecha_invitacion:data.fecha_invitacion,
-  fecha_respuesta:data.fecha_respuesta,
-  respuesta:data.respuesta,
-  observaciones:data.observaciones
+      id_solicitud: data.id_solicitud,
+      id_jurado: data.id_jurado,
+      fecha_invitacion: data.fecha_invitacion
 
-
-    },{
-  headers: new HttpHeaders({
-   Authorization:`Bearer ${this.tk}` 
-  })
+    }, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
     });
   }
 
 
- 
 
- 
-  
-  SearchRecord(id: number): Observable<EvaluacionSolicitudModel>{
+
+
+
+  SearchRecord(id: number): Observable<EvaluacionSolicitudModel> {
     return this.http.get<EvaluacionSolicitudModel>(`${this.url}/evaluacion-solicitudes/${id}`);
   }
-  EditRecord(data: EvaluacionSolicitudModel): Observable<EvaluacionSolicitudModel>{
+  EditRecord(data: EvaluacionSolicitudModel): Observable<EvaluacionSolicitudModel> {
     return this.http.put<EvaluacionSolicitudModel>(`${this.url}/evaluacion-solicitudes/${data.id}`, {
-  id_jurado: data.id_jurado,
-  id_solicitud: data.id_solicitud,
-  fecha_invitacion: data.fecha_invitacion,
-  fecha_respuesta: data.fecha_respuesta,
+      id_jurado: data.id_jurado,
+      id_solicitud: data.id_solicitud,
+      fecha_invitacion: data.fecha_invitacion,
+      fecha_respuesta: data.fecha_respuesta,
 
-  respuesta: data.respuesta,
-  observaciones: data.observaciones,
+      respuesta: data.respuesta,
+      observaciones: data.observaciones,
 
 
 
-    },{
-  headers: new HttpHeaders({
-   Authorization:`Bearer ${this.tk}` 
-  })
+    }, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
     });
   }
-  RemoveRecord(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.url}/jurados/${id}`,{
+  RemoveRecord(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.url}/jurados/${id}`, {
       headers: new HttpHeaders({
-       Authorization:`Bearer ${this.tk}` 
+        Authorization: `Bearer ${this.tk}`
       })
-        });
+    });
   }
 
 }

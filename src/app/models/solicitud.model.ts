@@ -14,7 +14,7 @@ export class SolicitudModel{
   id_tipoSolicitud?:number;
   id_modalidad?:number;
   id_LineaInvestigacion?:number
-
+  id_proponente?:number
 
   tipoSolicitudes?: TipoSolicitudModel;
   modalidades?: ModalidadModel;

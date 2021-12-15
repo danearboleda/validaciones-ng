@@ -37,6 +37,7 @@ export class SolicitudService {
       id_tipoSolicitud: data.id_tipoSolicitud,
       id_modalidad: data.id_modalidad,
       id_LineaInvestigacion: data.id_LineaInvestigacion,
+      id_proponente:data.id_proponente
     }, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.tk}`

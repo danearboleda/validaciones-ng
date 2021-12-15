@@ -1,6 +1,5 @@
-<br />
 <a routerLink="/solicitudes/solicitudes-crear" class="btn btn-success">Agregar Registro</a>
-
+<br><br>
 <fieldset>
     <legend>Listado de Solicitudes</legend>
     <!--
@@ -112,8 +111,14 @@
                     <br>
                     <a routerLink="/solicitudes/solicitudes-anular/{{r.id}}" class="btn btn-warning red">Eliminar</a>
                 </ul>
+                <ul>
+                    <br>
+                    <a routerLink="/solicitudes/esolicitud-crear/{{r.id}}" class="btn btn-warning green">Asignar jurado</a>
+                </ul>
              
             </ul>
         </div>
     </div>
 </fieldset>
+<br>
+<br>

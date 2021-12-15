@@ -40,7 +40,7 @@ const routes: Routes = [
     canActivate:[AuthenticatedGuard]
   },
   {
-    path:"user-edition",
+    path:"user-edition/:_id",
     component: UserEditionComponent,
     canActivate:[AuthenticatedGuard]
   },
@@ -50,7 +50,7 @@ const routes: Routes = [
     canActivate:[AuthenticatedGuard]
   },
   {
-    path:"remove-user",
+    path:"remove-user/:_id",
     component: RemoveUserComponent,
     canActivate:[AuthenticatedGuard]
   }

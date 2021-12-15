@@ -48,7 +48,7 @@ export class UserEditionComponent implements OnInit {
   }
 
   SearchRecord() {
-    let id = this.route.snapshot.params["id"];
+    let id = this.route.snapshot.params["_id"];
 
 
     this.service.SearchRecord(id).subscribe({
@@ -68,7 +68,7 @@ export class UserEditionComponent implements OnInit {
 
   saveRecord() {
     let model = new UserModel();
-    model._id = this.GetDF["id"].value;
+    model._id = this.GetDF["_id"].value;
     model.nombre = this.GetDF["nombre"].value;
     model.correo = this.GetDF["correo"].value;
     model.celular = this.GetDF["celular"].value;

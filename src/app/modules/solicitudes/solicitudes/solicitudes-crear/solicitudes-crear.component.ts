@@ -56,7 +56,7 @@ export class SolicitudesCrearComponent implements OnInit {
 
   }
 
-  GetDataForSelects() {
+    GetDataForSelects() {
     this.lineaInvestigacionService.GetRecordList().subscribe({
       next: (data: LineaInvestigacionModel[]) => {
         this.investigacionLista = data;
@@ -136,6 +136,8 @@ export class SolicitudesCrearComponent implements OnInit {
       model.id_modalidad = parseInt(this.GetDF["id_modalidad"].value),
       model.id_LineaInvestigacion = parseInt(this.GetDF["id_LineaInvestigacion"].value),
       model.archivo = this.GetDF["archivo"].value,
+      model.id_proponente=parseInt(this.GetDF["id_proponente"].value)
+      
   
 
     this.service.saveRecord(model).subscribe({
@@ -171,6 +173,7 @@ export class SolicitudesCrearComponent implements OnInit {
   submitFileToServer() {
     const form = new FormData();
     form.append("file", this.archivoForm.controls["file"].value)
+    
     this.service.UploadArchivo(form).subscribe({
       next: (data: UploadFile) => {
         this.dataForm.controls["archivo"].setValue(data.filename);

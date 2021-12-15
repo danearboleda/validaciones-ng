@@ -36,7 +36,7 @@ export class RemoveUserComponent implements OnInit {
   
    
   SearchRecord(){
-    let id=this.route.snapshot.params["id"];
+    let id=this.route.snapshot.params["_id"];
     this.service.SearchRecord(id).subscribe({
       next:(data: UserModel)=>{
   if(data._id && data.correo &&data.id_rol){
