@@ -13,5 +13,6 @@ export namespace ConfigurationData{
     export const PAGE_SIZE_PAGINATION = 3;
     export const ERROR_MESSAGE = "Error en el backend."
     export const INVALID_RECAPTCHA = "Por favor resuelva el Captcha."
+    export const KEY_RECOVERED = "Contraseña recueprada. Mira tu correo"
 
 }

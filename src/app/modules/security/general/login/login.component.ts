@@ -25,12 +25,14 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private securityService: SecurityService,
+
   private localStorageService: LocalStorageService,
   private router: Router, private formBuilder: FormBuilder
     ) { 
       this.siteKey="6LdKG6EdAAAAAC8zHJm_wPCcaUXy37cvhSuxG9s7";
 
     }
+
 
   ngOnInit(): void {
     this.aFormGroup = this.formBuilder.group({
@@ -56,33 +58,34 @@ export class LoginComponent implements OnInit {
     }
     if (this.dataForm.invalid ) {
       ShowGeneralMessage(ConfigurationData.INVALID_FORM_MESSAGE);
-    }else{
+    } else {
       let credentials = new UserCredentialsModel();
       credentials.username = this.GetDF["username"].value;
       credentials.password = MD5(this.GetDF["password"].value).toString();
       this.securityService.Login(credentials).subscribe({
-        next:(data: SessionDataModel)=>{
-        console.log(data);
-       let saved= this.localStorageService.SaveSessionData(data);
-      data.isLoggedIn=true;
-      this.securityService.RefreshSessionInfo(data);
-     this.router.navigate(["/home"])
-    },
-      error: (error:any)=>
-      {
+        next: (data: SessionDataModel) => {
+          console.log(data);
+          let saved = this.localStorageService.SaveSessionData(data);
+          data.isLoggedIn = true;
+          this.securityService.RefreshSessionInfo(data);
+          this.router.navigate(["/home"])
+        },
+        error: (error: any) => {
 
-      },
-      complete: ()=>{
+        },
+        complete: () => {
 
-      }}
-      );
+        }
       }
+      );
     }
+  }
 
   get GetDF() {
     return this.dataForm.controls;
   }
- 
+
   
   }
+
 
