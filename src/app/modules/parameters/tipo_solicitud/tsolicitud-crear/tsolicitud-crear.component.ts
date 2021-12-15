@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { TipoSolicitudModel } from 'src/app/models/tipoSolicitud.model';
+import { UploadFile } from 'src/app/models/uploaded.file.model';
 import { TipoSolicitudService } from 'src/app/service/parameters/tipo-solicitud.service';
 
 declare const ShowGeneralMessage: any;
@@ -15,6 +16,10 @@ declare const ShowGeneralMessage: any;
 export class TsolicitudCrearComponent implements OnInit {
 
   dataForm: FormGroup = new FormGroup({});
+  archivoForm: FormGroup = new FormGroup({});
+  uploadedArchivo: boolean = false;
+
+
   constructor(
     private fb: FormBuilder,
   private router: Router,
@@ -23,6 +28,8 @@ export class TsolicitudCrearComponent implements OnInit {
 
   ngOnInit(): void {
     this.FormBuilding();
+    this.FormArchivo();
+
   }
 
   FormBuilding() {
@@ -30,6 +37,11 @@ export class TsolicitudCrearComponent implements OnInit {
       name: ["", [Validators.required]],
       formato: ["", [Validators.required]]
     });
+  }
+  FormArchivo() {
+    this.archivoForm = this.fb.group({
+      file: ["", []]
+    })
   }
 
   saveRecord(){
@@ -43,6 +55,24 @@ ShowGeneralMessage(ConfigurationData.SAVED_MESSAGE);
 this.router.navigate(["parameters/tsolicitud-listar"])
 }
 });
+  }
+
+  uploadArchivo(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.archivoForm.controls["file"].setValue(file);
+    }
+  }
+
+  submitFileToServer() {
+    const form = new FormData();
+    form.append("file", this.archivoForm.controls["file"].value)
+    this.service.UploadArchivo(form).subscribe({
+      next: (data: UploadFile) => {
+        this.dataForm.controls["archivo"].setValue(data.filename);
+        this.uploadedArchivo = true;
+      }
+    })
   }
 
   get GetDF() {

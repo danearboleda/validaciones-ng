@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { TipoSolicitudModel } from 'src/app/models/tipoSolicitud.model';
+import { UploadFile } from 'src/app/models/uploaded.file.model';
 import { LocalStorageService } from '../shared/local-storage.service';
 
 @Injectable({
@@ -52,5 +53,16 @@ export class TipoSolicitudService {
        Authorization:`Bearer ${this.tk}` 
       })
         });
+  }
+  UploadArchivo(form: FormData):Observable<UploadFile>{
+    return this.http.post<UploadFile>(
+      `${this.url}/CargarArchivoComprimido`, 
+      form,
+      {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${this.tk}`
+      })
+    });
+
   }
 }

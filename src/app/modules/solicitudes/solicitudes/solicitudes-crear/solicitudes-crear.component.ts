@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { LineaInvestigacionModel } from 'src/app/models/lineaInvestigacion.model';
 import { ModalidadModel } from 'src/app/models/modalidad.model';
+import { ProponenteModel } from 'src/app/models/proponente.model';
 import { SolicitudModel } from 'src/app/models/solicitud.model';
 import { TipoSolicitudModel } from 'src/app/models/tipoSolicitud.model';
 import { UploadFile } from 'src/app/models/uploaded.file.model';
@@ -11,6 +12,7 @@ import { ComiteModel } from 'src/app/modules/parameters/comite.model';
 import { ComiteService } from 'src/app/service/parameters/comite.service';
 import { LineaInvestigacionService } from 'src/app/service/parameters/linea-investigacion.service';
 import { ModalidadService } from 'src/app/service/parameters/modalidad.service';
+import { ProponenteService } from 'src/app/service/parameters/proponente.service';
 import { TipoSolicitudService } from 'src/app/service/parameters/tipo-solicitud.service';
 import { SolicitudService } from 'src/app/service/solicitudes/solicitud.service';
 
@@ -30,6 +32,7 @@ export class SolicitudesCrearComponent implements OnInit {
   tipoList: TipoSolicitudModel[] = [];
   modalidadList: ModalidadModel[] = [];
   comiteList: ComiteModel[] = [];
+  proponentesList: ProponenteModel[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -38,7 +41,9 @@ export class SolicitudesCrearComponent implements OnInit {
     private lineaInvestigacionService: LineaInvestigacionService,
     private tipoSolicitudService: TipoSolicitudService,
     private modalidadService: ModalidadService,
-    private comitesService: ComiteService
+    private comitesService: ComiteService,
+    private proponenteService: ProponenteService
+
 
   ) { }
 
@@ -83,6 +88,15 @@ export class SolicitudesCrearComponent implements OnInit {
         this.comiteList = data;
         setTimeout(() => {
           InitSelect("selComites");
+        }, 100);
+
+      }
+    });
+    this.proponenteService.GetRecordList().subscribe({
+      next: (data: ProponenteModel[]) => {
+        this.proponentesList = data;
+        setTimeout(() => {
+          InitSelect("selProponente");
         }, 100);
 
       }
