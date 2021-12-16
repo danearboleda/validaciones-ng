@@ -1,39 +1,43 @@
 <div class="row">
-    <form [formGroup]="dataForm" class="col s12">
-     
-        <div class="row">
-            <div class="input-field col s6">
-              <input formControlName="id_solicitud"  id="txtId_solicitud" type="number" >
-              <label for="txtId_solicitud">ID solicitud</label>
-            </div>
-          </div>
-        <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="tipo"  id="txtTipo" type="text" >
-          <label for="txtTipo">Tipo</label>
-        </div>
+  <form [formGroup]="dataForm" class="col s12">
+
+    <div class="row">
+      <div class="input-field col s6">
+      <select formControlName="id_solicitud" id="selSolicitud">
+        <option *ngFor="let s of solicitudList" value="{{s.id}}">{{s.nombre_trabajo}}</option>
+      </select>
+      <label>Nombre de Solicitud</label>
+    </div>
+    <div class="input-field col s6">
+      <select formControlName="id_jurado" id="selJurado">
+        <option *ngFor="let j of juradoList" value="{{j.id}}">{{j.nombre}}</option>
+      </select>
+      <label>Jurado</label>
+    </div>
+    </div>
+
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input formControlName="resumen" id="txtResumen" type="text">
+        <label for="txtResumen">Resumen</label>
       </div>
-  
-     
-      <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="resumen"  id="txtResumen" type="text" >
-          <label for="txtResumen">Resumen</label>
-        </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input formControlName="tipo" id="txtTipo" type="text">
+        <label for="txtTipo">Tipo</label>
       </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input formControlName="fecha"  id="txtFecha" type="text" >
-          <label for="txtFecha">Fecha</label>
-        </div>
+    </div>
+    
+
+
+
+    <div class="row">
+      <div class="col s12">
+        <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
+        &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/recordatorio-listar">Cancelar</a>
       </div>
-  
-     
-      <div class="row">
-        <div class="col s12">
-         <button type="button" class="btn btn-success" (click)="saveRecord()">Guardar</button>
-      &nbsp; <a class="btn btn-warning orange" routerLink="/parameters/recordatorio-listar">Cancelar</a>
-        </div>
-      </div>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>

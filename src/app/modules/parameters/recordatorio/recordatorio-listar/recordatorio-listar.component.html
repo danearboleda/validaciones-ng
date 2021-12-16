@@ -11,6 +11,9 @@
                     Solicitud
                 </th>
                 <th>
+                    Jurado
+                </th>
+                <th>
                     Tipo
                 </th>
                 <th>
@@ -32,6 +35,9 @@
             <tr *ngFor="let r of recordList">
                 <td>
                     {{r.solicitudes?.nombre_trabajo}}
+                </td>
+                <td>
+                    {{r.tiene_jurado?.nombre}}
                 </td>
                 <td>
                     {{r.tipo}}

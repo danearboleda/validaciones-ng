@@ -1,4 +1,5 @@
 
+import { JuradoModel } from "./jurado.model";
 import { SolicitudModel } from "./solicitud.model";
 
 export class RecordatorioModel{
@@ -8,7 +9,9 @@ export class RecordatorioModel{
     resumen?:string;
     fecha?:string;
     hora?:string; 
+    id_jurado?:number;
 
+    tiene_jurado?:JuradoModel;
     solicitudes?: SolicitudModel
 
 }
