@@ -173,7 +173,6 @@ export class SolicitudesCrearComponent implements OnInit {
   submitFileToServer() {
     const form = new FormData();
     form.append("file", this.archivoForm.controls["file"].value)
-    
     this.service.UploadArchivo(form).subscribe({
       next: (data: UploadFile) => {
         this.dataForm.controls["archivo"].setValue(data.filename);

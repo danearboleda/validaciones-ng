@@ -12,12 +12,13 @@ export class RecordatorioService {
 
   url: string = ConfigurationData.BUSSINESS_MS_URL;
   tk:string=""; 
+  filter:string = '?filter={"include":[{"relation":"solicitudes"}]}';
   constructor(private http: HttpClient, private localStorageService: LocalStorageService) {
     this.tk=this.localStorageService.GetToken();
   }
 
   GetRecordList(): Observable<RecordatorioModel[]>{
-    return this.http.get<RecordatorioModel[]>(`${this.url}/recordatorios`);
+    return this.http.get<RecordatorioModel[]>(`${this.url}/recordatorios${this.filter}`);
   }
 
   saveRecord(data: RecordatorioModel): Observable<RecordatorioModel>{

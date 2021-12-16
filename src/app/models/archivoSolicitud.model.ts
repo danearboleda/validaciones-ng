@@ -1,3 +1,3 @@
 export class ArchivoSolicitudModel{
-    id?:number
+    archivo?:string
 }

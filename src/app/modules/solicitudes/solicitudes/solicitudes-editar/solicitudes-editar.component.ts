@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfigurationData } from 'src/app/config/ConfigurationData';
 import { LineaInvestigacionModel } from 'src/app/models/lineaInvestigacion.model';
 import { ModalidadModel } from 'src/app/models/modalidad.model';
+import { ProponenteModel } from 'src/app/models/proponente.model';
 import { SolicitudModel } from 'src/app/models/solicitud.model';
 import { TipoSolicitudModel } from 'src/app/models/tipoSolicitud.model';
 import { UploadFile } from 'src/app/models/uploaded.file.model';
@@ -11,6 +12,7 @@ import { ComiteModel } from 'src/app/modules/parameters/comite.model';
 import { ComiteService } from 'src/app/service/parameters/comite.service';
 import { LineaInvestigacionService } from 'src/app/service/parameters/linea-investigacion.service';
 import { ModalidadService } from 'src/app/service/parameters/modalidad.service';
+import { ProponenteService } from 'src/app/service/parameters/proponente.service';
 import { TipoSolicitudService } from 'src/app/service/parameters/tipo-solicitud.service';
 import { SolicitudService } from 'src/app/service/solicitudes/solicitud.service';
 
@@ -32,6 +34,7 @@ export class SolicitudesEditarComponent implements OnInit {
   investigacionLista: LineaInvestigacionModel[] = [];
   tipoList: TipoSolicitudModel[] = [];
   modalidadList: ModalidadModel[] = [];
+  proponenteList: ProponenteModel[]=[];
   comiteList: ComiteModel[] = [];
 
   constructor(
@@ -42,6 +45,7 @@ export class SolicitudesEditarComponent implements OnInit {
     private tipoSolicitudService: TipoSolicitudService,
     private modalidadService: ModalidadService,
     private comitesService: ComiteService,
+    private proponenteService: ProponenteService,
     private route: ActivatedRoute
 
   ) { }
@@ -92,6 +96,15 @@ export class SolicitudesEditarComponent implements OnInit {
 
       }
     });
+    this.proponenteService.GetRecordList().subscribe({
+      next: (data: ProponenteModel[]) => {
+        this.proponenteList = data;
+        setTimeout(() => {
+          InitSelect("selPropoente");
+        }, 100);
+
+      }
+    });
   }
 
   FormArchivo() {
@@ -109,7 +122,8 @@ export class SolicitudesEditarComponent implements OnInit {
       id_modalidad: ["", [Validators.required]],
       id_LineaInvestigacion: ["", [Validators.required]],
       tipoComites: ["", [Validators.required]],
-      archivo: ["", [Validators.required]]
+      archivo: ["", [Validators.required]],
+      id_proponente:["", [Validators.required]]
     });
   }
 
@@ -126,6 +140,8 @@ export class SolicitudesEditarComponent implements OnInit {
         this.GetDF["archivo"].setValue(data.archivo);
         this.GetDF["descripcion"].setValue(data.descripcion);
         this.GetDF["tipoComites"].setValue(data.tipoComites);
+        this.GetDF["id_proponente"].setValue(data.id_proponente);
+
 
       }
     })
@@ -141,7 +157,9 @@ export class SolicitudesEditarComponent implements OnInit {
       model.id_tipoSolicitud = parseInt(this.GetDF["id_tipoSolicitud"].value),
       model.id_modalidad = parseInt(this.GetDF["id_modalidad"].value),
       model.id_LineaInvestigacion = parseInt(this.GetDF["id_LineaInvestigacion"].value),
-      model.archivo = this.GetDF["archivo"].value
+      model.archivo = this.GetDF["archivo"].value,
+      model.id_proponente = parseInt(this.GetDF["id_proponente"].value)
+
 
     this.service.saveRecord(model).subscribe({
       next: (data: SolicitudModel) => {

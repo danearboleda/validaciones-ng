@@ -70,6 +70,15 @@
           <label>Linea de Investigacion</label>
         </div>
       </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <select formControlName="id_proponente" id="selPropoente">
+            <option *ngFor="let p of proponenteList" value="{{p.id}}">{{p.PrimerNombre}}</option>
+          </select>
+          <label>Linea de Investigacion</label>
+        </div>
+      </div>
+      
   
   
       <div class="row">
