@@ -1,6 +1,9 @@
+<input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />
+<button type="button" class="btn btn-success" (click)="saveFromCSV()">Importar CSV</button>
+
 <div class="row">
     <form [formGroup]="dataForm" class="col s12">
-      <div class="row">
+      <div class="row" >
         <div class="input-field col s12">
           <input formControlName="name"  id="txtName" type="text" >
           <label for="txtName">Nombre</label>
